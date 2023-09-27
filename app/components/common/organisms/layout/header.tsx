@@ -1,11 +1,20 @@
 'use client'
 
-import { Box, Flex, Heading, Link, useDisclosure } from '@chakra-ui/react'
+import {
+  Box,
+  Flex,
+  Heading,
+  Link,
+  useDisclosure,
+  Button,
+} from '@chakra-ui/react'
 import NextLink from 'next/link'
 import MenuIconButton from '../../atoms/button/menu-icon-button'
 import MenuDrawer from '../../molecules/menu-drawer'
 import { useRouter } from 'next/navigation'
 import { useCallback } from 'react'
+import { MdLogout } from 'react-icons/md'
+import supabase from '@/utils/supabase'
 
 export default function Header() {
   const router = useRouter()
@@ -24,6 +33,11 @@ export default function Header() {
     router.push('/past_data')
     onClose()
   }, [router, onClose])
+
+  //サインアウトの処理
+  function signOut() {
+    supabase.auth.signOut()
+  }
 
   return (
     <>
@@ -55,9 +69,15 @@ export default function Header() {
               Summary
             </Link>
           </Box>
-          <Link href="/past_data" as={NextLink}>
-            Past Data
-          </Link>
+          <Box pr={3}>
+            {' '}
+            <Link href="/past_data" as={NextLink}>
+              Past Data
+            </Link>
+          </Box>
+          <Button onClick={signOut} colorScheme="none">
+            <MdLogout size="20px" />
+          </Button>
         </Flex>
         <MenuIconButton onOpen={onOpen} />
       </Flex>
