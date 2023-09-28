@@ -11,6 +11,7 @@ export default function Auth() {
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const resetProduct = useStore((status) => status.resetEditProduct)
   const router = useRouter()
 
   //ユーザーがEメールとパスワードを入力後、実行される関数
@@ -27,7 +28,7 @@ export default function Auth() {
       if (error) {
         alert(error.message)
       } else {
-        router.push('/')
+        router.push('/record')
       }
     } else {
       const { error } = await supabase.auth.signUp({
@@ -66,6 +67,7 @@ export default function Auth() {
               size="lg"
               mb="8"
               placeholder="Email"
+              variant="outline"
               required
               value={email}
               onChange={(e) => {
@@ -79,6 +81,7 @@ export default function Auth() {
               mb="8"
               required
               placeholder="Password"
+              variant="outline"
               value={password}
               onChange={(e) => {
                 setPassword(e.target.value)

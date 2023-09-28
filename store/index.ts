@@ -8,6 +8,7 @@ type EditProduct = {
   price: number | null
   category: string | null
   status: boolean
+  date: string | null
 }
 
 type LoginUser = {
@@ -25,7 +26,14 @@ type State = {
 }
 
 const useStore = create<State>((set) => ({
-  editedProduct: { id: '', name: '', price: null, category: '', status: true },
+  editedProduct: {
+    id: '',
+    name: '',
+    price: null,
+    category: '',
+    status: true,
+    date: '',
+  },
   updateEditProduct: (payload) =>
     set({
       editedProduct: payload,
@@ -38,6 +46,7 @@ const useStore = create<State>((set) => ({
         price: null,
         category: '',
         status: true,
+        date: '',
       },
     }),
   loginUser: { id: '', email: '' },

@@ -64,6 +64,12 @@ export default function Header() {
           fontSize="sm"
           display={{ base: 'none', md: 'flex' }}
         >
+          <Box pr={3}>
+            {' '}
+            <Link href="/record" as={NextLink}>
+              Record
+            </Link>
+          </Box>
           <Box pr={4}>
             <Link href="/summary" as={NextLink}>
               Summary
