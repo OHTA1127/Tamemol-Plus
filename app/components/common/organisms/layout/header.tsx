@@ -37,6 +37,7 @@ export default function Header() {
   //サインアウトの処理
   function signOut() {
     supabase.auth.signOut()
+    router.push('/auth')
   }
 
   return (
