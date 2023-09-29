@@ -2,6 +2,7 @@ import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { headers, cookies } from 'next/headers'
 import ProductItem from './product-item'
+import { Table, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
 
 export default async function ProductList() {
   const supabase = createServerComponentSupabaseClient<Database>({
@@ -12,13 +13,25 @@ export default async function ProductList() {
     .from('products')
     .select()
     .order('created_at', { ascending: true })
-  console.log(products)
+
+  // console.log(products)
 
   return (
-    <>
-      {products?.map((product) => (
-        <ProductItem key={product.id} {...product} />
-      ))}
-    </>
+    <TableContainer>
+      <Table>
+        <Thead>
+          <Tr>
+            <Th>商品名</Th>
+            <Th>カテゴリー</Th>
+            <Th>価格</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
+          {products?.map((product) => (
+            <ProductItem key={product.id} {...product} />
+          ))}
+        </Tbody>
+      </Table>
+    </TableContainer>
   )
 }
