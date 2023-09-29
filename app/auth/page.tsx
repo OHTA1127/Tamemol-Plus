@@ -2,7 +2,15 @@
 
 import useStore from '@/store'
 import supabase from '@/utils/supabase'
-import { Flex, Heading, FormLabel, Button, Box, Input } from '@chakra-ui/react'
+import {
+  Flex,
+  Heading,
+  FormLabel,
+  Button,
+  Box,
+  Input,
+  Text,
+} from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
@@ -88,10 +96,19 @@ export default function Auth() {
               }}
             />
             <div>
-              <Button type="submit">{isLogin ? 'Login' : 'Register'}</Button>
+              <Button type="submit">{isLogin ? 'Login' : 'Sign Up'}</Button>
             </div>
           </form>
-          <Button onClick={() => setIsLogin(!isLogin)}>change mode ?</Button>
+          <Flex>
+            {isLogin ? (
+              <Text>Creating an account for the first time?</Text>
+            ) : (
+              <Text>Already have an account ?</Text>
+            )}
+            <Button onClick={() => setIsLogin(!isLogin)}>
+              {isLogin ? <Text>Sign up here</Text> : <Text>Log in here</Text>}
+            </Button>
+          </Flex>
         </Box>
       </Box>
     </Flex>
