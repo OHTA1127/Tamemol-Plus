@@ -7,6 +7,7 @@ import {
   Link,
   useDisclosure,
   Button,
+  Text,
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
 import MenuIconButton from '../../atoms/button/menu-icon-button'
@@ -44,8 +45,7 @@ export default function Header() {
     <>
       <Flex
         as="nav"
-        bg="cyan.500"
-        color="gray.50"
+        color="white"
         align="center"
         justify="space-between"
         padding={{ base: 3, md: 4 }}
@@ -68,18 +68,18 @@ export default function Header() {
           <Box pr={3}>
             {' '}
             <Link href="/record" as={NextLink}>
-              Record
+              <Text as="b">Record</Text>
             </Link>
           </Box>
           <Box pr={4}>
             <Link href="/summary" as={NextLink}>
-              Summary
+              <Text as="b">Summary</Text>
             </Link>
           </Box>
           <Box pr={3}>
             {' '}
             <Link href="/past_data" as={NextLink}>
-              Past Data
+              <Text as="b">Past Data</Text>
             </Link>
           </Box>
           <Button onClick={signOut} colorScheme="none">
