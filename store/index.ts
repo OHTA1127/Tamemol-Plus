@@ -1,5 +1,4 @@
 //グローバルなステートを管理するファイル
-
 import { create } from 'zustand'
 
 type EditProduct = {
@@ -11,6 +10,12 @@ type EditProduct = {
   date: string | null
 }
 
+type EditProfile = {
+  id: string
+  name: string | null
+  goalMoney: number | null
+}
+
 type LoginUser = {
   id: string | undefined
   email: string | undefined
@@ -20,6 +25,9 @@ type State = {
   editedProduct: EditProduct
   updateEditProduct: (payload: EditProduct) => void
   resetEditProduct: () => void
+  editedProfile: EditProfile
+  updateEditProfile: (payload: EditProfile) => void
+  resetEditProfile: () => void
   loginUser: LoginUser
   updateLoginUser: (payload: LoginUser) => void
   resetLoginUser: () => void
@@ -49,6 +57,25 @@ const useStore = create<State>((set) => ({
         date: '',
       },
     }),
+
+  editedProfile: {
+    id: '',
+    name: '',
+    goalMoney: null,
+  },
+  updateEditProfile: (payload) =>
+    set({
+      editedProfile: payload,
+    }),
+  resetEditProfile: () =>
+    set({
+      editedProfile: {
+        id: '',
+        name: '',
+        goalMoney: null,
+      },
+    }),
+
   loginUser: { id: '', email: '' },
   updateLoginUser: (payload) =>
     set({

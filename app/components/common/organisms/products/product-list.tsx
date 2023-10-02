@@ -14,11 +14,9 @@ export default async function ProductList() {
     .select()
     .order('created_at', { ascending: true })
 
-  // console.log(products)
-
   return (
     <TableContainer>
-      <Table>
+      <Table bgColor="white">
         <Thead>
           <Tr>
             <Th>商品名</Th>
