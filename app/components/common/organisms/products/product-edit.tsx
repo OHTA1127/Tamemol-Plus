@@ -2,7 +2,7 @@
 
 import useStore from '@/store'
 import supabase from '@/utils/supabase'
-import { Box, Button, FormLabel, Input } from '@chakra-ui/react'
+import { Box, Button, FormLabel, Input, Select } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 import { FormEvent } from 'react'
 
@@ -63,18 +63,27 @@ export default function EditProduct() {
           }}
         />
         <FormLabel fontWeight="bold">カテゴリー</FormLabel>
-        <Input
-          type="text"
+        <Select
+          name="商品カテゴリー"
+          required
+          placeholder="Select category"
           size="lg"
           mb="8"
-          placeholder="New Product ?"
-          variant="outline"
-          required
           value={editedProduct.category || ''}
           onChange={(e) => {
             updateProduct({ ...editedProduct, category: e.target.value })
+            console.log(e.target.value)
           }}
-        />
+        >
+          <option value="">選択してください</option>
+          <option value="食料品">食料品</option>
+          <option value="衣類">衣類</option>
+          <option value="遊び">遊び</option>
+          <option value="趣味">趣味</option>
+          <option value="雑貨">雑貨</option>
+          <option value="その他">その他</option>
+        </Select>
+
         <FormLabel fontWeight="bold">金額</FormLabel>
         <Input
           type="number"
