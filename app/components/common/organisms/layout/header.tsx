@@ -16,8 +16,9 @@ import { useRouter } from 'next/navigation'
 import { useCallback } from 'react'
 import { MdLogout } from 'react-icons/md'
 import supabase from '@/utils/supabase'
+import React from 'react'
 
-export default function Header() {
+function Header() {
   const router = useRouter()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const onClickHome = useCallback(() => {
@@ -98,3 +99,5 @@ export default function Header() {
     </>
   )
 }
+
+export default React.memo(Header)
