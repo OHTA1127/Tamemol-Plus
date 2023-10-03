@@ -12,14 +12,13 @@ export default async function ProfileBox() {
 
   const { data: profile } = await supabase.from('profile').select()
   const userProfile = profile![0]
-  console.log(profile![0])
 
-  const userName = profile?.[0]?.name
+  const userName = profile?.[0]?.name || 'ゲスト'
   const profileGoalMoney = profile?.[0]?.goal_money || 1000
 
   return (
     <Box bgColor="white">
-      <Text>{userName || 'ゲスト'}</Text>
+      <Text>{userName}</Text>
       <Flex>
         <Text>目標金額 {profileGoalMoney}</Text>
         <ProfileEditButton data={userProfile} />

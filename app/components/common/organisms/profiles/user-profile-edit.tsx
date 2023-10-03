@@ -18,7 +18,7 @@ export default function EditUserProfile() {
     //プロフィールの新規作成
 
     if (editedProfile.id === '') {
-      console.log('--------------')
+      // console.log('--------------')
       const { error } = await supabase
         .from('profile')
         .insert({
@@ -31,7 +31,7 @@ export default function EditUserProfile() {
 
       reset()
     } else {
-      console.log('!!!!!!!!!!!!!!')
+      // console.log('!!!!!!!!!!!!!!')
       //プロフィールの編集
       const { error } = await supabase
         .from('profile')
@@ -79,15 +79,7 @@ export default function EditUserProfile() {
           }}
         />
         <div>
-          <Button
-            type="submit"
-            onClick={() => {
-              console.log('************')
-              // router.push('/record')
-            }}
-          >
-            Update
-          </Button>
+          <Button type="submit">Update</Button>
         </div>
       </form>
     </Box>

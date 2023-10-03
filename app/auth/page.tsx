@@ -48,8 +48,19 @@ export default function Auth() {
       setPassword('')
       if (error) {
         alert(error.message)
+      } else {
+        router.push('/record')
       }
     }
+    //登録と同時にデータを挿入させたい
+    // const {} = await supabase
+    //   .from('profile')
+    //   .insert({
+    //     name: 'ゲスト',
+    //     goal_money: 1000,
+    //     user_id: loginUser.id,
+    //   })
+    //   .select()
   }
 
   return (
