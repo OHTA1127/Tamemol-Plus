@@ -2,8 +2,9 @@
 import { Box, Center, Flex, Link, Text } from '@chakra-ui/react'
 import { AiFillGithub } from 'react-icons/ai'
 import NextLink from 'next/link'
+import React from 'react'
 
-export default function Footer() {
+function Footer() {
   return (
     <Flex as="footer" position="fixed" bottom={0} w="100%">
       <Text color="gray.100" m="0 auto" p={3}>
@@ -18,3 +19,5 @@ export default function Footer() {
     </Flex>
   )
 }
+
+export default React.memo(Footer)

@@ -3,8 +3,9 @@ import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-next
 import { headers, cookies } from 'next/headers'
 import ProductItem from './product-item'
 import { Table, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
+import React from 'react'
 
-export default async function ProductList() {
+async function ProductList() {
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
@@ -33,3 +34,5 @@ export default async function ProductList() {
     </TableContainer>
   )
 }
+
+export default React.memo(ProductList)
