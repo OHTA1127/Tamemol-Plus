@@ -2,17 +2,24 @@ import { Box, Flex } from '@chakra-ui/react'
 import EditProduct from '../components/common/organisms/products/product-edit'
 import ProductList from '../components/common/organisms/products/product-list'
 import ProfileBox from '../components/common/organisms/profiles/profile-box'
+import ProductResult from '../components/common/organisms/products/product-result'
+import React from 'react'
 
-export default async function Record() {
+async function Record() {
+
+
   return (
-    <>
+    <Flex>
       <Box>
         <ProfileBox />
-      </Box>
-      <Flex>
         <EditProduct />
+      </Box>
+      <Box>
+        <ProductResult />
         <ProductList />
-      </Flex>
-    </>
+      </Box>
+    </Flex>
   )
 }
+
+export default React.memo(Record)

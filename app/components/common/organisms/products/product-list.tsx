@@ -15,6 +15,27 @@ async function ProductList() {
     .select()
     .order('created_at', { ascending: true })
 
+  //現在の日付を取得
+  const currentDate = new Date()
+
+  //現在の月と年を取得
+  const currentMonth = currentDate.getMonth() + 1
+  const currentYear = currentDate.getFullYear()
+
+  //今月のデータのみを取得する
+  const currentMonthProducts = products?.filter((product) => {
+    if (product.date) {
+      //product.date の文字列を JavaScript の Date オブジェクトに変換する
+      const productDate = new Date(product.date)
+
+      const productMonth = productDate.getMonth() + 1
+      const productYear = productDate.getFullYear()
+
+      return productMonth === currentMonth && productYear === currentYear
+    }
+    return false
+  })
+
   return (
     <TableContainer>
       <Table bgColor="white">
@@ -23,10 +44,13 @@ async function ProductList() {
             <Th>商品名</Th>
             <Th>カテゴリー</Th>
             <Th>価格</Th>
+            <Th>我慢中はチェック！</Th>
+            <Th></Th>
+            <Th></Th>
           </Tr>
         </Thead>
         <Tbody>
-          {products?.map((product) => (
+          {currentMonthProducts?.map((product) => (
             <ProductItem key={product.id} {...product} />
           ))}
         </Tbody>
