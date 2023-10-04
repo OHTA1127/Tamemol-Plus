@@ -35,7 +35,6 @@ async function ProductList() {
     }
     return false
   })
-  console.log(currentMonthProducts)
 
   return (
     <TableContainer>
