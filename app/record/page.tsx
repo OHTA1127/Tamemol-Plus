@@ -7,6 +7,7 @@ import React from 'react'
 import GoalMoney from '../components/common/molecules/money/goal-money'
 import UnbuyMoney from '../components/common/molecules/money/unbuy-money'
 import BuyMoney from '../components/common/molecules/money/buy-money'
+import PieChartContainer from '../components/common/organisms/chart/pie-chart-container'
 
 async function Record() {
   return (
@@ -22,7 +23,10 @@ async function Record() {
           <UnbuyMoney />
           <BuyMoney />
         </Flex>
-        <ProductList />
+        <Flex>
+          <PieChartContainer />
+          <ProductList />
+        </Flex>
       </Box>
     </Flex>
   )
