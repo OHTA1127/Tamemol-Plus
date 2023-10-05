@@ -1,5 +1,5 @@
 'use client'
-import { Box, Center, Flex, Link, Text } from '@chakra-ui/react'
+import { Box, Flex, Link, Text } from '@chakra-ui/react'
 import { AiFillGithub } from 'react-icons/ai'
 import NextLink from 'next/link'
 import React from 'react'
