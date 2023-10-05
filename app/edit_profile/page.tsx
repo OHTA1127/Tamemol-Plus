@@ -1,5 +1,8 @@
+import React from 'react'
 import EditUserProfile from '../components/common/organisms/profiles/user-profile-edit'
 
-export default function EditProfile() {
+function EditProfile() {
   return <EditUserProfile />
 }
+
+export default React.memo(EditProfile)

@@ -1,6 +1,5 @@
 'use client'
 
-import { Database } from '@/database.types'
 import useStore from '@/store'
 import { Button } from '@chakra-ui/react'
 import Link from 'next/link'
