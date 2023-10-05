@@ -1,17 +1,15 @@
-import { Flex, Text } from '@chakra-ui/react'
 import React from 'react'
-import MonthDate from '../../atoms/month/month-date'
+import { headers, cookies } from 'next/headers'
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { headers, cookies } from 'next/headers'
+import { Box, Text } from '@chakra-ui/react'
 
-async function ProductResult() {
+async function UnbuyMoney() {
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
   })
 
-  const { data: profile } = await supabase.from('profile').select()
   const { data: product } = await supabase
     .from('products')
     .select()
@@ -27,6 +25,7 @@ async function ProductResult() {
   //初期値の変数を０にする
   let totalSum = 0
 
+  //今月の我慢の合計金額を計算
   //productがnullでない時に実行
   if (product) {
     for (const item of product) {
@@ -45,18 +44,12 @@ async function ProductResult() {
     console.log('Product is null')
   }
 
-  const profileGoalMoney = profile?.[0]?.goal_money || 1000
-
-  const achievementRate = ((totalSum / profileGoalMoney) * 100).toFixed(1)
-
   return (
-    <Flex>
-      <Flex bgColor="white">
-        <MonthDate fontSize={40} text="月の我慢" />
-        <Text>達成率 {achievementRate}%</Text>
-      </Flex>
-    </Flex>
+    <Box>
+      <Text>我慢した金額</Text>
+      <Text>{totalSum}</Text>
+    </Box>
   )
 }
 
-export default React.memo(ProductResult)
+export default React.memo(UnbuyMoney)

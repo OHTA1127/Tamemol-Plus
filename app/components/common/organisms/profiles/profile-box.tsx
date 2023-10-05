@@ -1,5 +1,5 @@
 import { Database } from '@/database.types'
-import { Box, Text, Flex, Button, Link } from '@chakra-ui/react'
+import { Box, Text, Flex } from '@chakra-ui/react'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { headers, cookies } from 'next/headers'
 import ProfileEditButton from './profile-edit-button'
