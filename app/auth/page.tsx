@@ -155,7 +155,7 @@ export default function Auth() {
                     color="white"
                     background="blue.700"
                     onClick={() => setIsLogin(!isLogin)}
-                    _hover={{ background: 'teal.300' }}
+                    _hover={{ background: 'blue.500' }}
                   >
                     {isLogin ? (
                       <Text>Sign up here</Text>
