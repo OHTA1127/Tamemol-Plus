@@ -1,4 +1,4 @@
-import { Flex, Text } from '@chakra-ui/react'
+import { Box, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 import MonthDate from '../../atoms/month/month-date'
 import { Database } from '@/database.types'
@@ -50,12 +50,21 @@ async function ProductResult() {
   const achievementRate = ((totalSum / profileGoalMoney) * 100).toFixed(1)
 
   return (
-    <Flex>
-      <Flex bgColor="white">
-        <MonthDate fontSize={40} text="月の我慢" />
-        <Text>達成率 {achievementRate}%</Text>
-      </Flex>
-    </Flex>
+    <Box
+      w="360px"
+      h="120px"
+      bgGradient="linear(to-r, orange.400, pink.500)"
+      borderRadius="10px"
+      shadow="2xl"
+      p={2}
+    >
+      <Stack>
+        <MonthDate />
+        <Text textAlign="center" fontSize="5xl" fontWeight="bold" color="white">
+          {achievementRate}%
+        </Text>
+      </Stack>
+    </Box>
   )
 }
 
