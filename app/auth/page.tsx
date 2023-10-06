@@ -64,7 +64,7 @@ export default function Auth() {
   }
 
   return (
-    <Flex w="100%" h="100vh" bgGradient="linear(to-r, cyan.400, green.400)">
+    <Flex w="100%" h="100vh" bgGradient="linear(to-r, cyan.400, blue.400)">
       <Box
         w="50%"
         display="flex"
@@ -85,7 +85,7 @@ export default function Auth() {
         >
           <Box w="100%">
             <Heading
-              bgGradient="linear(to-r, cyan.500, green.500)"
+              bgGradient="linear(to-r, cyan.400, blue.500)"
               bgClip="text"
               fontWeight="extrabold"
               fontSize={40}
@@ -134,7 +134,7 @@ export default function Auth() {
                 <Button
                   type="submit"
                   color="white"
-                  background="teal.800"
+                  background="blue.700"
                   size="lg"
                   paddingX="80px"
                   m="0 auto"
@@ -153,7 +153,7 @@ export default function Auth() {
                   <Button
                     mt={1}
                     color="white"
-                    background="teal.800"
+                    background="blue.700"
                     onClick={() => setIsLogin(!isLogin)}
                     _hover={{ background: 'teal.300' }}
                   >

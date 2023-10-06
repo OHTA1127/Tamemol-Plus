@@ -2,7 +2,7 @@ import React from 'react'
 import { headers, cookies } from 'next/headers'
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { Box, Text } from '@chakra-ui/react'
+import { Box, Stack, Text, Flex, Center } from '@chakra-ui/react'
 
 async function UnbuyMoney() {
   const supabase = createServerComponentSupabaseClient<Database>({
@@ -45,9 +45,22 @@ async function UnbuyMoney() {
   }
 
   return (
-    <Box>
-      <Text>我慢した金額</Text>
-      <Text>{totalSum}</Text>
+    <Box
+      w="360px"
+      h="120px"
+      bgGradient="linear(to-r, pink.400, purple.500)"
+      borderRadius="10px"
+      shadow="2xl"
+      p={2}
+    >
+      <Stack>
+        <Text fontSize="md" fontWeight="bold" pt={2} pl={3} color="white">
+          我慢した金額
+        </Text>
+        <Text textAlign="center" fontSize="5xl" fontWeight="bold" color="white">
+          ¥ {totalSum}
+        </Text>
+      </Stack>
     </Box>
   )
 }

@@ -2,12 +2,7 @@
 import { Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 
-type Props = {
-  fontSize: number
-  text: string
-}
-
-function MonthData({ fontSize, text }: Props) {
+function MonthData() {
   const [currentMonth, setCurrentMonth] = useState('')
 
   useEffect(() => {
@@ -31,9 +26,8 @@ function MonthData({ fontSize, text }: Props) {
   }, [])
 
   return (
-    <Text fontSize={fontSize}>
-      {currentMonth}
-      {text}
+    <Text fontSize="md" fontWeight="bold" pt={2} pl={3} color="white">
+      {currentMonth}月の達成率
     </Text>
   )
 }

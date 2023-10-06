@@ -8,7 +8,7 @@ export default function RecordLayout({
   children: React.ReactNode
 }) {
   return (
-    <Box w="100%" h="100vh" bgGradient="linear(to-r, cyan.400, green.400)">
+    <Box w="100%" h="100vh" bg="gray.100">
       <Header />
       {children}
       <Footer />
