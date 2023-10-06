@@ -2,7 +2,17 @@ import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { headers, cookies } from 'next/headers'
 import ProductItem from './product-item'
-import { Table, TableContainer, Tbody, Th, Thead, Tr } from '@chakra-ui/react'
+import {
+  Box,
+  Stack,
+  Table,
+  TableContainer,
+  Tbody,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react'
 import React from 'react'
 
 async function ProductList() {
@@ -14,6 +24,7 @@ async function ProductList() {
     .from('products')
     .select()
     .order('created_at', { ascending: true })
+    .range(0, 5)
 
   //現在の日付を取得
   const currentDate = new Date()
@@ -37,25 +48,37 @@ async function ProductList() {
   })
 
   return (
-    <TableContainer>
-      <Table bgColor="white">
-        <Thead>
-          <Tr>
-            <Th>商品名</Th>
-            <Th>カテゴリー</Th>
-            <Th>価格</Th>
-            <Th>我慢中はチェック！</Th>
-            <Th></Th>
-            <Th></Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {currentMonthProducts?.map((product) => (
-            <ProductItem key={product.id} {...product} />
-          ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" p={5}>
+      <Stack>
+        <Text
+          as="b"
+          bgClip="text"
+          bgGradient="linear(to-r, cyan.400, blue.500)"
+          fontSize={{ base: 'xl', md: '2xl' }}
+        >
+          Product List
+        </Text>
+        <TableContainer>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th>商品名</Th>
+                <Th>カテゴリー</Th>
+                <Th>価格</Th>
+                <Th>我慢中はチェック！</Th>
+                <Th></Th>
+                <Th></Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {currentMonthProducts?.map((product) => (
+                <ProductItem key={product.id} {...product} />
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Stack>
+    </Box>
   )
 }
 

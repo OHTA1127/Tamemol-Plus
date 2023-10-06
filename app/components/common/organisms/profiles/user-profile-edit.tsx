@@ -4,9 +4,10 @@ import useStore from '@/store'
 import supabase from '@/utils/supabase'
 import { Box, Button, FormLabel, Input } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
+import React from 'react'
 import { FormEvent } from 'react'
 
-export default function EditUserProfile() {
+function EditUserProfile() {
   const router = useRouter()
   const { editedProfile } = useStore()
   const { loginUser } = useStore()
@@ -85,3 +86,5 @@ export default function EditUserProfile() {
     </Box>
   )
 }
+
+export default React.memo(EditUserProfile)

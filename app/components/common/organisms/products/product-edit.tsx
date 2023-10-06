@@ -2,11 +2,12 @@
 
 import useStore from '@/store'
 import supabase from '@/utils/supabase'
-import { Box, Button, FormLabel, Input, Select } from '@chakra-ui/react'
+import { Box, Button, Center, FormLabel, Input, Select } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
+import React from 'react'
 import { FormEvent } from 'react'
 
-export default function EditProduct() {
+function EditProduct() {
   const router = useRouter()
   const { editedProduct } = useStore()
   const { loginUser } = useStore()
@@ -48,7 +49,14 @@ export default function EditProduct() {
   }
 
   return (
-    <Box bgColor="white">
+    <Box
+      bgColor="white"
+      w="450px"
+      h="500px"
+      borderRadius="10px"
+      shadow="2xl"
+      p={4}
+    >
       <form onSubmit={submitHandler}>
         <FormLabel fontWeight="bold">商品名</FormLabel>
         <Input
@@ -101,19 +109,26 @@ export default function EditProduct() {
         <Input
           type="date"
           size="lg"
-          mb="8"
           required
           value={editedProduct.date || ''}
           onChange={(e) => {
             updateProduct({ ...editedProduct, date: e.target.value })
           }}
         />
-        <div>
-          <Button type="submit">
+        <Center>
+          <Button
+            type="submit"
+            color="white"
+            background="blue.700"
+            _hover={{ background: 'blue.500' }}
+            m={4}
+          >
             {editedProduct.id === '' ? 'Create' : 'Update'}
           </Button>
-        </div>
+        </Center>
       </form>
     </Box>
   )
 }
+
+export default React.memo(EditProduct)

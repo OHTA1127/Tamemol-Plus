@@ -5,10 +5,11 @@ import useStore from '@/store'
 import supabase from '@/utils/supabase'
 import { Button, Td, Tr } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
+import React from 'react'
 
 type Product = Database['public']['Tables']['products']['Row']
 
-export default function ProductItem(product: Product) {
+function ProductItem(product: Product) {
   const router = useRouter()
   const updateProduct = useStore((state) => state.updateEditProduct)
   const resetProduct = useStore((status) => status.resetEditProduct)
@@ -40,6 +41,9 @@ export default function ProductItem(product: Product) {
       </Td>
       <Td>
         <Button
+          color="white"
+          background="blue.700"
+          _hover={{ background: 'blue.500' }}
           onClick={() => {
             updateProduct({
               id: product.id,
@@ -56,6 +60,9 @@ export default function ProductItem(product: Product) {
       </Td>
       <Td>
         <Button
+          color="white"
+          background="blue.700"
+          _hover={{ background: 'blue.500' }}
           onClick={() => {
             deleteMutate(product.id)
           }}
@@ -66,3 +73,5 @@ export default function ProductItem(product: Product) {
     </Tr>
   )
 }
+
+export default React.memo(ProductItem)
