@@ -5,6 +5,7 @@ import {
   DrawerBody,
   Button,
 } from '@chakra-ui/react'
+import React from 'react'
 
 type Props = {
   onClose: () => void
@@ -14,7 +15,7 @@ type Props = {
   onClickPastData: () => void
 }
 
-export default function MenuDrawer({
+function MenuDrawer({
   onClose,
   isOpen,
   onClickHome,
@@ -41,3 +42,5 @@ export default function MenuDrawer({
     </Drawer>
   )
 }
+
+export default React.memo(MenuDrawer)

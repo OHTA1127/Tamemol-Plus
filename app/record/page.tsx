@@ -1,10 +1,4 @@
-import {
-  Box,
-  Flex,
-  Spacer,
-  Wrap,
-  WrapItem,
-} from '@chakra-ui/react'
+import { Box, Flex, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
 import EditProduct from '../components/common/organisms/products/product-edit'
 import ProductList from '../components/common/organisms/products/product-list'
 import ProductResult from '../components/common/organisms/products/product-result'
@@ -18,7 +12,6 @@ import { headers, cookies } from 'next/headers'
 import { Database } from '@/database.types'
 
 async function Record() {
-
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
@@ -29,10 +22,13 @@ async function Record() {
   const profileGoalMoney = profile?.[0]?.goal_money || 1000
 
   return (
-    <Box w="100%" h="100vh">
+    <Box w="100%" h="100%">
       <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
         <WrapItem>
-          <GoalMoney userData={userProfile} profileGoalMoney={profileGoalMoney} />
+          <GoalMoney
+            userData={userProfile}
+            profileGoalMoney={profileGoalMoney}
+          />
         </WrapItem>
         <Spacer />
         <WrapItem>
@@ -47,13 +43,19 @@ async function Record() {
           <ProductResult />
         </WrapItem>
       </Wrap>
-      <Flex>
-        <EditProduct />
-        <Flex>
+      <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
+        <WrapItem>
+          <EditProduct />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
           <PieChartContainer />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
           <ProductList />
-        </Flex>
-      </Flex>
+        </WrapItem>
+      </Wrap>
     </Box>
   )
 }

@@ -17,7 +17,7 @@ type Props = {
   userData: ProfileData
 }
 
-async function GoalMoney({ profileGoalMoney, userData }: Props) {
+function GoalMoney({ profileGoalMoney, userData }: Props) {
   const updateProfile = useStore((state) => state.updateEditProfile)
 
   return (
