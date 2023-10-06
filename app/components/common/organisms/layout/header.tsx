@@ -57,7 +57,13 @@ function Header() {
           _hover={{ cursor: 'pointer' }}
           onClick={onClickHome}
         >
-          <Heading as="h1" fontSize={{ base: 'xl', md: '2xl' }}>
+          <Heading
+            as="h1"
+            fontSize={{ base: 'xl', md: '4xl' }}
+            bgClip="text"
+            bgGradient="linear(to-r, cyan.400, blue.500)"
+            justifyContent="center"
+          >
             Tamemol +
           </Heading>
         </Flex>
@@ -69,21 +75,46 @@ function Header() {
           <Box pr={3}>
             {' '}
             <Link href="/record" as={NextLink}>
-              <Text as="b">Record</Text>
+              <Text
+                as="b"
+                bgClip="text"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                fontSize={{ base: 'md', md: 'lg' }}
+              >
+                Record
+              </Text>
             </Link>
           </Box>
           <Box pr={4}>
             <Link href="/summary" as={NextLink}>
-              <Text as="b">Summary</Text>
+              <Text
+                as="b"
+                bgClip="text"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                fontSize={{ base: 'md', md: 'lg' }}
+              >
+                Summary
+              </Text>
             </Link>
           </Box>
           <Box pr={3}>
             {' '}
             <Link href="/past_data" as={NextLink}>
-              <Text as="b">Past Data</Text>
+              <Text
+                as="b"
+                bgClip="text"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                fontSize={{ base: 'md', md: 'lg' }}
+              >
+                Past Data
+              </Text>
             </Link>
           </Box>
-          <Button onClick={signOut} colorScheme="none">
+          <Button
+            onClick={signOut}
+            colorScheme="none"
+            bgGradient="linear(to-r, cyan.400, blue.500)"
+          >
             <MdLogout size="20px" />
           </Button>
         </Flex>
