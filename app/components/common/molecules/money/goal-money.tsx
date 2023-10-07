@@ -30,12 +30,15 @@ function GoalMoney({ profileGoalMoney, userData }: Props) {
         shadow="2xl"
         p={2}
         _hover={{ cursor: 'pointer', opacity: 0.8 }}
+        // onClickイベントでザスタンドを使用してグローバルステートに現在のprofileの値をセットする
         onClick={() => {
-          updateProfile({
-            id: userData.id,
-            name: userData.name,
-            goalMoney: userData.goal_money,
-          })
+          if (userData) {
+            updateProfile({
+              id: userData.id,
+              name: userData.name,
+              goalMoney: userData.goal_money,
+            })
+          }
         }}
       >
         <Stack>

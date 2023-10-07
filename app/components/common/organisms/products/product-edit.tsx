@@ -14,6 +14,8 @@ function EditProduct() {
   const updateProduct = useStore((state) => state.updateEditProduct)
   const reset = useStore((state) => state.resetEditProduct)
 
+  
+
   async function submitHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     //タスクの新規作成

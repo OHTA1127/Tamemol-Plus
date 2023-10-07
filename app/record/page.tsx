@@ -1,4 +1,4 @@
-import { Box, Flex, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
+import { Box, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
 import EditProduct from '../components/common/organisms/products/product-edit'
 import ProductList from '../components/common/organisms/products/product-list'
 import ProductResult from '../components/common/organisms/products/product-result'
@@ -12,6 +12,7 @@ import { headers, cookies } from 'next/headers'
 import { Database } from '@/database.types'
 
 async function Record() {
+
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,

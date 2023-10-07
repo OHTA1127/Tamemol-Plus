@@ -14,12 +14,13 @@ function EditUserProfile() {
   const updateProfile = useStore((state) => state.updateEditProfile)
   const reset = useStore((state) => state.resetEditProfile)
 
+  console.log(loginUser)
+
   async function submitEditProfile(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     //プロフィールの新規作成
 
     if (editedProfile.id === '') {
-      // console.log('--------------')
       const { error } = await supabase
         .from('profile')
         .insert({
@@ -29,10 +30,10 @@ function EditUserProfile() {
         })
         .select()
       router.refresh()
+      router.push('/record')
 
       reset()
     } else {
-      // console.log('!!!!!!!!!!!!!!')
       //プロフィールの編集
       const { error } = await supabase
         .from('profile')
