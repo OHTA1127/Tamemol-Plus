@@ -3,6 +3,8 @@ import PieChart from './pie-chart'
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { headers, cookies } from 'next/headers'
+import { Box } from '@chakra-ui/react'
+import NotBuyProduct from './not-buy-product'
 
 async function PieChartContainer() {
   const supabase = createServerComponentSupabaseClient<Database>({
@@ -70,9 +72,8 @@ async function PieChartContainer() {
       />
     )
   } else {
-    return <p>買ったものはありません</p>
+    return <NotBuyProduct />
   }
-
 }
 
 export default React.memo(PieChartContainer)
