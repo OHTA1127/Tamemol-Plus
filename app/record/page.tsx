@@ -12,7 +12,6 @@ import { headers, cookies } from 'next/headers'
 import { Database } from '@/database.types'
 
 async function Record() {
-
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,

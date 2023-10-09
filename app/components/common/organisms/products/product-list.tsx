@@ -2,17 +2,7 @@ import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { headers, cookies } from 'next/headers'
 import ProductItem from './product-item'
-import {
-  Box,
-  Stack,
-  Table,
-  TableContainer,
-  Tbody,
-  Text,
-  Th,
-  Thead,
-  Tr,
-} from '@chakra-ui/react'
+import { Box, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
 
 async function ProductList() {
@@ -24,7 +14,6 @@ async function ProductList() {
     .from('products')
     .select()
     .order('created_at', { ascending: true })
-    .range(0, 5)
 
   //現在の日付を取得
   const currentDate = new Date()
@@ -58,25 +47,7 @@ async function ProductList() {
         >
           Product List
         </Text>
-        <TableContainer>
-          <Table>
-            <Thead>
-              <Tr>
-                <Th>商品名</Th>
-                <Th>カテゴリー</Th>
-                <Th>価格</Th>
-                <Th>我慢中はチェック！</Th>
-                <Th></Th>
-                <Th></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {currentMonthProducts?.map((product) => (
-                <ProductItem key={product.id} {...product} />
-              ))}
-            </Tbody>
-          </Table>
-        </TableContainer>
+        <ProductItem currentMonthProducts={currentMonthProducts} />
       </Stack>
     </Box>
   )
