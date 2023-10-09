@@ -2,7 +2,7 @@
 
 import useStore from '@/store'
 import supabase from '@/utils/supabase'
-import { Box, Button, FormLabel, Input } from '@chakra-ui/react'
+import { Box, Button, Flex, FormLabel, Heading, Input } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 import React from 'react'
 import { FormEvent } from 'react'
@@ -50,41 +50,96 @@ function EditUserProfile() {
   }
 
   return (
-    <Box bgColor="white">
-      <form onSubmit={submitEditProfile}>
-        <FormLabel fontWeight="bold">名前</FormLabel>
-        <Input
-          type="text"
-          size="lg"
-          mb="8"
-          placeholder="Your Name ?"
-          required
-          value={editedProfile.name || ''}
-          onChange={(e) => {
-            updateProfile({ ...editedProfile, name: e.target.value })
-          }}
-        />
-        <FormLabel fontWeight="bold">目標金額</FormLabel>
-        <Input
-          type="text"
-          size="lg"
-          mb="8"
-          placeholder="Goal Money ?"
-          required
-          value={editedProfile.goalMoney !== null ? editedProfile.goalMoney : 0}
-          onChange={(e) => {
-            const goalMoney = parseFloat(e.target.value) || 0
-            updateProfile({
-              ...editedProfile,
-              goalMoney: goalMoney,
-            })
-          }}
-        />
-        <div>
-          <Button type="submit">Update</Button>
-        </div>
-      </form>
-    </Box>
+    <Flex w="100%" h="100vh">
+      <Box
+        w="100%"
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+      >
+        <Box
+          boxShadow="lg"
+          w="600px"
+          paddingY="120px"
+          paddingX="32px"
+          borderRadius="8px"
+          border="1px solid"
+          borderColor="gray.100"
+          m="0 auto"
+          color="white"
+          bgColor="white"
+        >
+          <Box w="100%">
+            <Heading
+              bgGradient="linear(to-r, cyan.400, blue.500)"
+              bgClip="text"
+              fontWeight="extrabold"
+              fontSize={40}
+              mb="48px"
+              textAlign="center"
+              size="xl"
+            >
+              Edit your profile!
+            </Heading>
+            <form onSubmit={submitEditProfile}>
+              <FormLabel fontWeight="bold" color="teal.800">
+                名前
+              </FormLabel>
+              <Input
+                color="gray.600"
+                type="text"
+                size="lg"
+                mb="8"
+                placeholder="Your Name ?"
+                _placeholder={{ color: 'teal.800' }}
+                variant="outline"
+                required
+                value={editedProfile.name || ''}
+                onChange={(e) => {
+                  updateProfile({ ...editedProfile, name: e.target.value })
+                }}
+              />
+              <FormLabel fontWeight="bold" color="teal.800">
+                目標金額(半角数字)
+              </FormLabel>
+              <Input
+                color="gray.600"
+                type="text"
+                size="lg"
+                mb="8"
+                placeholder="Goal Money ?"
+                _placeholder={{ color: 'teal.800' }}
+                variant="outline"
+                required
+                value={
+                  editedProfile.goalMoney !== null ? editedProfile.goalMoney : 0
+                }
+                onChange={(e) => {
+                  const goalMoney = parseFloat(e.target.value) || 0
+                  updateProfile({
+                    ...editedProfile,
+                    goalMoney: goalMoney,
+                  })
+                }}
+              />
+              <Flex flexDirection="column">
+                <Button
+                  type="submit"
+                  color="white"
+                  background="blue.700"
+                  size="lg"
+                  paddingX="80px"
+                  m="0 auto"
+                  _hover={{ background: 'teal.300' }}
+                >
+                  Update
+                </Button>
+              </Flex>
+            </form>
+          </Box>
+        </Box>
+      </Box>
+    </Flex>
   )
 }
 

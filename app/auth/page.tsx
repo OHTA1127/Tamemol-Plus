@@ -1,6 +1,5 @@
 'use client'
 
-import useStore from '@/store'
 import supabase from '@/utils/supabase'
 import {
   Flex,
@@ -16,11 +15,9 @@ import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
 export default function Auth() {
-  const { loginUser } = useStore()
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const resetProduct = useStore((status) => status.resetEditProduct)
   const router = useRouter()
 
   //ユーザーがEメールとパスワードを入力後、実行される関数
@@ -52,15 +49,6 @@ export default function Auth() {
         router.push('/record')
       }
     }
-    //登録と同時にデータを挿入させたい
-    // const {} = await supabase
-    //   .from('profile')
-    //   .insert({
-    //     name: 'ゲスト',
-    //     goal_money: 1000,
-    //     user_id: loginUser.id,
-    //   })
-    //   .select()
   }
 
   return (
