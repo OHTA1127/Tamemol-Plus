@@ -6,7 +6,7 @@ function NotBuyProduct() {
     <Box w="360px" h="500px" bgColor="white" borderRadius="10px" shadow="2xl">
       <Center>
         <Text fontWeight="bold" pt={230}>
-          買った商品はありません!
+          買った商品はありません！
         </Text>
       </Center>
     </Box>
