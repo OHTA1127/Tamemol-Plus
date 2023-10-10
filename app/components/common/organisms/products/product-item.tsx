@@ -141,6 +141,7 @@ function ProductItem({ currentMonthProducts }: Props) {
             marginPagesDisplayed={2} // 一番最初と最後を基準にして、そこからいくつページ数を表示するか
             pageRangeDisplayed={5} // アクティブなページを基準にして、そこからいくつページ数を表示するか
             containerClassName={'pagination'} // ページネーションであるulに着くクラス名
+            activeClassName={'active'} // アクティブなページのliに着くクラス名
           />
         </>
       ) : (
