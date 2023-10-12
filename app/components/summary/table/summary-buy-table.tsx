@@ -1,9 +1,11 @@
 'use client'
 import {
+  Box,
   Table,
   TableContainer,
   Tbody,
   Td,
+  Text,
   Th,
   Thead,
   Tr,
@@ -51,26 +53,37 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
   }, [productData, selectMonth])
 
   return (
-    <TableContainer>
-      <Table>
-        <Thead>
-          <Tr>
-            <Th>商品名</Th>
-            <Th>カテゴリー</Th>
-            <Th>価格</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {buyProductList.map((item) => (
-            <Tr key={item.id}>
-              <Td>{item.name}</Td>
-              <Td>{item.category}</Td>
-              <Td>{item.price}</Td>
+    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" p={3}>
+      <Text
+        pb={6}
+        as="b"
+        bgClip="text"
+        bgGradient="linear(to-r, cyan.400, blue.500)"
+        fontSize={{ base: 'xl', md: '2xl' }}
+      >
+        我慢した商品
+      </Text>
+      <TableContainer>
+        <Table>
+          <Thead>
+            <Tr>
+              <Th>商品名</Th>
+              <Th>カテゴリー</Th>
+              <Th>価格</Th>
             </Tr>
-          ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+          </Thead>
+          <Tbody>
+            {buyProductList.map((item) => (
+              <Tr key={item.id}>
+                <Td>{item.name}</Td>
+                <Td>{item.category}</Td>
+                <Td>{item.price}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
+    </Box>
   )
 }
 export default React.memo(SummaryBuyTable)
