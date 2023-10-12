@@ -82,7 +82,6 @@ function EditProduct() {
           value={editedProduct.category || ''}
           onChange={(e) => {
             updateProduct({ ...editedProduct, category: e.target.value })
-            console.log(e.target.value)
           }}
         >
           <option value="">選択してください</option>

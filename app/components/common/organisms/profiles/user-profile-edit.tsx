@@ -14,8 +14,6 @@ function EditUserProfile() {
   const updateProfile = useStore((state) => state.updateEditProfile)
   const reset = useStore((state) => state.resetEditProfile)
 
-  console.log(loginUser)
-
   async function submitEditProfile(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     //プロフィールの新規作成
