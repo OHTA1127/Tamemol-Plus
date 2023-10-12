@@ -1,6 +1,6 @@
-import React from 'react'
 import { Box, Stack, Text } from '@chakra-ui/react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
+import React from 'react'
 import { Pie } from 'react-chartjs-2'
 import NotBuyProduct from '../../common/organisms/chart/not-buy-product'
 
@@ -97,7 +97,7 @@ function summaryPieChart({ productData, selectMonth }: Props) {
     return (
       <Box
         bg="white"
-        w="360px"
+        w="400px"
         h="500px"
         borderRadius="10px"
         shadow="2xl"
@@ -115,7 +115,7 @@ function summaryPieChart({ productData, selectMonth }: Props) {
           </Text>
           <Pie data={data} />
           <Text
-            pt={6}
+            pt={4}
             align="center"
             as="b"
             bgClip="text"
