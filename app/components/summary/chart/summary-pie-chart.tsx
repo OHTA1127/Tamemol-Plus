@@ -97,15 +97,15 @@ function summaryPieChart({ productData, selectMonth }: Props) {
     return (
       <Box
         bg="white"
-        w="400px"
+        w="440px"
         h="500px"
         borderRadius="10px"
         shadow="2xl"
-        p={5}
+        p={3}
       >
         <Stack>
           <Text
-            pb={6}
+            pb={2}
             as="b"
             bgClip="text"
             bgGradient="linear(to-r, cyan.400, blue.500)"
@@ -114,16 +114,6 @@ function summaryPieChart({ productData, selectMonth }: Props) {
             Buying Trends
           </Text>
           <Pie data={data} />
-          <Text
-            pt={4}
-            align="center"
-            as="b"
-            bgClip="text"
-            bgGradient="linear(to-r, cyan.400, blue.500)"
-            fontSize={{ base: 'sm', md: 'md' }}
-          >
-            よく買うものをチェック！
-          </Text>
         </Stack>
       </Box>
     )

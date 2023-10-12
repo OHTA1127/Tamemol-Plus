@@ -53,7 +53,7 @@ function SummaryUnbuyTable({ productData, selectMonth }: Props) {
   }, [productData, selectMonth])
 
   return (
-    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" w="500px" p={3}>
+    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" w="550px" p={3}>
       <Text
         pb={6}
         as="b"
