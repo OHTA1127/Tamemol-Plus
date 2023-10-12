@@ -57,10 +57,10 @@ function PieChart({
     ],
   }
   return (
-    <Box bg="white" w="360px" h="500px" borderRadius="10px" shadow="2xl" p={3}>
+    <Box bg="white" w="390px" h="500px" borderRadius="10px" shadow="2xl" p={3}>
       <Stack>
         <Text
-          pb={5}
+          pb={3}
           as="b"
           bgClip="text"
           bgGradient="linear(to-r, cyan.400, blue.500)"

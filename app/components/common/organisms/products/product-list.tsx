@@ -37,7 +37,7 @@ async function ProductList() {
   })
 
   return (
-    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" p={3}>
+    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" w="700px" p={3}>
       <Stack>
         <Text
           as="b"
