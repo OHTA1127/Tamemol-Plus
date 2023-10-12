@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import { Pie } from 'react-chartjs-2'
 import { Box, Stack, Text } from '@chakra-ui/react'
+import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
+import React from 'react'
+import { Pie } from 'react-chartjs-2'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -57,18 +57,28 @@ function PieChart({
     ],
   }
   return (
-    <Box bg="white" w="360px" h="500px" borderRadius="10px" shadow="2xl" p={5}>
+    <Box bg="white" w="360px" h="500px" borderRadius="10px" shadow="2xl" p={3}>
       <Stack>
         <Text
+          pb={5}
           as="b"
           bgClip="text"
           bgGradient="linear(to-r, cyan.400, blue.500)"
           fontSize={{ base: 'xl', md: '2xl' }}
-          
         >
           Buying Trends
         </Text>
         <Pie data={data} />
+        <Text
+          pt={6}
+          align="center"
+          as="b"
+          bgClip="text"
+          bgGradient="linear(to-r, cyan.400, blue.500)"
+          fontSize={{ base: 'sm', md: 'md' }}
+        >
+          よく買うものをチェック！
+        </Text>
       </Stack>
     </Box>
   )
