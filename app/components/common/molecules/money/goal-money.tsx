@@ -1,8 +1,8 @@
 'use client'
-import React from 'react'
+import useStore from '@/store'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
-import useStore from '@/store'
+import React from 'react'
 
 type ProfileData = {
   id: string

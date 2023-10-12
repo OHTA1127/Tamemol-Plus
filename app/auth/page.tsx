@@ -2,14 +2,14 @@
 
 import supabase from '@/utils/supabase'
 import {
-  Flex,
-  Heading,
-  FormLabel,
-  Button,
   Box,
+  Button,
+  Flex,
+  FormLabel,
+  Heading,
+  Image,
   Input,
   Text,
-  Image,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'

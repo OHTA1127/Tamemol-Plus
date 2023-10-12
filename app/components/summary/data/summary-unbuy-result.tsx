@@ -1,7 +1,6 @@
 'use client'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-// import MonthDate from '../../atoms/month/month-date'
 
 type Product = {
   category: string | null

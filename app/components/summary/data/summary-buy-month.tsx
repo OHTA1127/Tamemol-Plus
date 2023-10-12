@@ -1,6 +1,6 @@
 'use client'
+import { Box, Stack, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { Box, Button, Spacer, Stack, Text } from '@chakra-ui/react'
 
 type Product = {
   category: string | null

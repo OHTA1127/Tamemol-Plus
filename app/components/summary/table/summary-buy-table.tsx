@@ -1,6 +1,5 @@
 'use client'
 import {
-  Box,
   Table,
   TableContainer,
   Tbody,

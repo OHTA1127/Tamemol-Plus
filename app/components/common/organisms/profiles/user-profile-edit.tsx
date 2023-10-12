@@ -4,8 +4,7 @@ import useStore from '@/store'
 import supabase from '@/utils/supabase'
 import { Box, Button, Flex, FormLabel, Heading, Input } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
-import React from 'react'
-import { FormEvent } from 'react'
+import React, { FormEvent } from 'react'
 
 function EditUserProfile() {
   const router = useRouter()

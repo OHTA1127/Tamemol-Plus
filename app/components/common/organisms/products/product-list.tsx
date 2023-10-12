@@ -1,7 +1,7 @@
 import { Database } from '@/database.types'
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { headers, cookies } from 'next/headers'
 import { Box, Stack, Text } from '@chakra-ui/react'
+import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { cookies, headers } from 'next/headers'
 import React from 'react'
 import ProductTable from './product-table'
 

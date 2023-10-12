@@ -1,6 +1,6 @@
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { headers, cookies } from 'next/headers'
+import { cookies, headers } from 'next/headers'
 import SupabaseListener from '../supabase/supabase-listener'
 
 export default async function AuthLayout({

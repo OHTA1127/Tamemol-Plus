@@ -1,8 +1,8 @@
-import React from 'react'
-import { headers, cookies } from 'next/headers'
 import { Database } from '@/database.types'
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { Box, Stack, Text } from '@chakra-ui/react'
+import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
+import { cookies, headers } from 'next/headers'
+import React from 'react'
 
 async function BuyMoney() {
   const supabase = createServerComponentSupabaseClient<Database>({
