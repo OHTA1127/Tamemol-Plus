@@ -1,7 +1,10 @@
+import { Box } from '@chakra-ui/react'
+import SummaryContainer from '../components/summary/summary-container'
+
 export default function Summary() {
   return (
-    <div>
-      月別の記録ページです
-    </div>
+    <Box w="100%" h="100vh">
+      <SummaryContainer />
+    </Box>
   )
 }

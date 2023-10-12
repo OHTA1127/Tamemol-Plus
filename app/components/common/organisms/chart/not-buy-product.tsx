@@ -1,4 +1,4 @@
-import { Box, Center, Flex, HStack, Text } from '@chakra-ui/react'
+import { Box, Center, Text } from '@chakra-ui/react'
 import React from 'react'
 
 function NotBuyProduct() {

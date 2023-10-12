@@ -23,7 +23,7 @@ type Props = {
   currentMonthProducts: Product[] | undefined
 }
 
-function ProductItem({ currentMonthProducts }: Props) {
+function ProductTable({ currentMonthProducts }: Props) {
   const router = useRouter()
   const updateProduct = useStore((state) => state.updateEditProduct)
   const resetProduct = useStore((status) => status.resetEditProduct)
@@ -164,4 +164,4 @@ function ProductItem({ currentMonthProducts }: Props) {
   )
 }
 
-export default React.memo(ProductItem)
+export default React.memo(ProductTable)

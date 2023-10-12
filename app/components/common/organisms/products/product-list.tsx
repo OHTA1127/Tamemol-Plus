@@ -1,9 +1,9 @@
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { headers, cookies } from 'next/headers'
-import ProductItem from './product-item'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import React from 'react'
+import ProductTable from './product-table'
 
 async function ProductList() {
   const supabase = createServerComponentSupabaseClient<Database>({
@@ -47,7 +47,7 @@ async function ProductList() {
         >
           Product List
         </Text>
-        <ProductItem currentMonthProducts={currentMonthProducts} />
+        <ProductTable currentMonthProducts={currentMonthProducts} />
       </Stack>
     </Box>
   )
