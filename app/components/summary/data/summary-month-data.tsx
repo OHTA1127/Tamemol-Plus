@@ -14,12 +14,13 @@ function SummaryMonthData({
   handleNextMonth,
 }: Props) {
   return (
-    <Box>
+    <Box w="260px" h="120px">
       <Text fontSize={35} color="gray.800">
         <span style={{ fontSize: '70px' }}>{selectMonth}</span>月のまとめ
       </Text>
       <Flex>
         <Button
+          h="25px"
           w={20}
           color="white"
           bgGradient="linear(to-r, cyan.400, blue.500)"
@@ -30,6 +31,8 @@ function SummaryMonthData({
         </Button>
         <Spacer />
         <Button
+          h="25px"
+          w={20}
           color="white"
           bgGradient="linear(to-r, cyan.400, blue.500)"
           _hover={{ background: 'blue.500' }}

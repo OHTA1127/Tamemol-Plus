@@ -1,5 +1,5 @@
 'use client'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import SummaryPieChart from './chart/summary-pie-chart'
 import SummaryBuyMonth from './data/summary-buy-month'
@@ -78,31 +78,65 @@ function MonthDisplay({ productData, userProfile }: Props) {
 
   return (
     <Box>
-      <Flex>
-        <SummaryMonthData
-          selectMonth={selectMonth}
-          handlePreviousMonth={handlePreviousMonth}
-          handleNextMonth={handleNextMonth}
-        />
-        <SummaryUnbuyMoney
-          productData={productData}
-          selectMonth={selectMonth}
-        />
-        <SummaryBuyMonth productData={productData} selectMonth={selectMonth} />
-        <SummaryUnbuyResult
-          productData={productData}
-          userProfile={userProfile}
-          selectMonth={selectMonth}
-        />
-      </Flex>
-      <Flex>
-        <SummaryUnbuyTable
-          productData={productData}
-          selectMonth={selectMonth}
-        />
-        <SummaryBuyTable productData={productData} selectMonth={selectMonth} />
-        <SummaryPieChart productData={productData} selectMonth={selectMonth} />
-      </Flex>
+      <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
+        <WrapItem>
+          {' '}
+          <SummaryMonthData
+            selectMonth={selectMonth}
+            handlePreviousMonth={handlePreviousMonth}
+            handleNextMonth={handleNextMonth}
+          />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
+          {' '}
+          <SummaryUnbuyMoney
+            productData={productData}
+            selectMonth={selectMonth}
+          />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
+          {' '}
+          <SummaryBuyMonth
+            productData={productData}
+            selectMonth={selectMonth}
+          />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
+          <SummaryUnbuyResult
+            productData={productData}
+            userProfile={userProfile}
+            selectMonth={selectMonth}
+          />
+        </WrapItem>
+      </Wrap>
+      <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
+        <WrapItem>
+          {' '}
+          <SummaryUnbuyTable
+            productData={productData}
+            selectMonth={selectMonth}
+          />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
+          {' '}
+          <SummaryBuyTable
+            productData={productData}
+            selectMonth={selectMonth}
+          />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
+          {' '}
+          <SummaryPieChart
+            productData={productData}
+            selectMonth={selectMonth}
+          />
+        </WrapItem>
+      </Wrap>
     </Box>
   )
 }
