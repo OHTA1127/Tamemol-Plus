@@ -84,7 +84,7 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
         bgGradient="linear(to-r, cyan.400, blue.500)"
         fontSize={{ base: 'xl', md: '2xl' }}
       >
-        我慢した商品
+        買った商品
       </Text>
       <TableContainer>
         <Table>
