@@ -1,22 +1,21 @@
 'use client'
 
+import supabase from '@/utils/supabase'
 import {
   Box,
+  Button,
   Flex,
   Heading,
   Link,
-  useDisclosure,
-  Button,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react'
 import NextLink from 'next/link'
+import { useRouter } from 'next/navigation'
+import React, { useCallback } from 'react'
+import { MdLogout } from 'react-icons/md'
 import MenuIconButton from '../../atoms/button/menu-icon-button'
 import MenuDrawer from '../../molecules/menu-drawer'
-import { useRouter } from 'next/navigation'
-import { useCallback } from 'react'
-import { MdLogout } from 'react-icons/md'
-import supabase from '@/utils/supabase'
-import React from 'react'
 
 function Header() {
   const router = useRouter()
