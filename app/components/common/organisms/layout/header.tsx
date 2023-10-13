@@ -73,6 +73,19 @@ function Header() {
         >
           <Box pr={3}>
             {' '}
+            <Link href="/" as={NextLink}>
+              <Text
+                as="b"
+                bgClip="text"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                fontSize={{ base: 'md', md: 'lg' }}
+              >
+                Top
+              </Text>
+            </Link>
+          </Box>
+          <Box pr={3}>
+            {' '}
             <Link href="/record" as={NextLink}>
               <Text
                 as="b"
