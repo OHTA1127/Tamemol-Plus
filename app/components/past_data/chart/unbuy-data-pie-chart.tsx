@@ -102,7 +102,7 @@ function UnbuyDataPieChart({ productData }: Props) {
             bgGradient="linear(to-r, cyan.400, blue.500)"
             fontSize={{ base: 'xl', md: '2xl' }}
           >
-            我慢した商品
+            我慢した商品！
           </Text>
           <Pie data={data} />
         </Stack>
