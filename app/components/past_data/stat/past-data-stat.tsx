@@ -67,7 +67,14 @@ function PastDataStat({ productData }: Props) {
 
   return (
     <StatGroup>
-      <Stat>
+      <Stat
+        bg="white"
+        borderRadius="10px"
+        shadow="2xl"
+        w="500px"
+        h="400px"
+        p={6}
+      >
         <StatLabel>Result</StatLabel>
         <StatNumber>
           {TotalCalculate(productData) >= 0 ? '+' : '-'}¥

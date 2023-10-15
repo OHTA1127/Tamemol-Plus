@@ -1,5 +1,5 @@
 import { Database } from '@/database.types'
-import { Box, Wrap, WrapItem } from '@chakra-ui/react'
+import { Box, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
 import React from 'react'
@@ -24,12 +24,18 @@ async function SumamaryContainer() {
       <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
         <WrapItem>
           <LineChart productData={product} />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
           <PastDataStat productData={product} />
         </WrapItem>
       </Wrap>
       <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
         <WrapItem>
           <BuyDataPieChart productData={product} />
+        </WrapItem>
+        <Spacer />
+        <WrapItem>
           <UnbuyDataPieChart productData={product} />
         </WrapItem>
       </Wrap>
