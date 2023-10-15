@@ -21,7 +21,7 @@ async function SumamaryContainer() {
 
   return (
     <Box w="100%" h="100vh">
-      <Wrap p={{ base: 4, md: 12 }} justifyContent="center">
+      <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
         <WrapItem>
           <LineChart productData={product} />
           <PastDataStat productData={product} />
