@@ -29,8 +29,8 @@ function summaryPieChart({ productData, selectMonth }: Props) {
 
     if (productData) {
       for (const item of productData) {
-        //dataが存在し、かつstatusがtrueの時に実行
-        if (item.date && item.status === true && item.category === category) {
+        //dataが存在し、かつstatusがfalseの時に実行
+        if (item.date && item.status === false && item.category === category) {
           const itemDate = new Date(item.date)
           const itemMonth = itemDate.getMonth() + 1
 

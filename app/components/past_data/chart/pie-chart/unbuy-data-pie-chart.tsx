@@ -29,7 +29,7 @@ function UnbuyDataPieChart({ productData }: Props) {
 
     if (productData) {
       for (const item of productData) {
-        if (item.status === false && item.category === category) {
+        if (item.status && item.category === category) {
           totalSum += item.price || 0
         }
       }

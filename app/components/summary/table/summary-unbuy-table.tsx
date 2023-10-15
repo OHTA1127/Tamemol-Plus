@@ -37,7 +37,7 @@ function SummaryUnbuyTable({ productData, selectMonth }: Props) {
   useEffect(() => {
     if (productData) {
       const unBuyProducts = productData.filter((item) => {
-        if (item.status === false) {
+        if (item.status === true) {
           const itemDate = item.date ? new Date(item.date) : null
           if (itemDate) {
             const itemMonth = itemDate.getMonth() + 1

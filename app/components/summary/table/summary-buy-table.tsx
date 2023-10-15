@@ -37,7 +37,7 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
   useEffect(() => {
     if (productData) {
       const buyProducts = productData.filter((item) => {
-        if (item.status === true) {
+        if (item.status === false) {
           const itemDate = item.date ? new Date(item.date) : null
           if (itemDate) {
             const itemMonth = itemDate.getMonth() + 1

@@ -1,4 +1,5 @@
 import {
+  Center,
   Stat,
   StatArrow,
   StatGroup,
@@ -40,7 +41,7 @@ function PastDataStat({ productData }: Props) {
       .filter((product) => product.status === false)
       .reduce((total, product) => total + (product.price || 0), 0)
 
-    const difference = falseTotal - trueTotal
+    const difference = trueTotal - falseTotal
     return difference
   }
 
@@ -60,7 +61,7 @@ function PastDataStat({ productData }: Props) {
       .filter((product) => product.status === false)
       .reduce((total, product) => total + (product.price || 0), 0)
 
-    const rate = (falseTotal - trueTotal) / 100
+    const rate = (trueTotal - falseTotal) / 100
 
     return rate
   }
@@ -72,15 +73,33 @@ function PastDataStat({ productData }: Props) {
         borderRadius="10px"
         shadow="2xl"
         w="500px"
-        h="400px"
+        h="350px"
         p={6}
       >
-        <StatLabel>Result</StatLabel>
-        <StatNumber>
-          {TotalCalculate(productData) >= 0 ? '+' : '-'}¥
-          {TotalCalculate(productData)}
-        </StatNumber>
-        <StatHelpText>
+        <StatLabel
+          as="b"
+          bgClip="text"
+          bgGradient="linear(to-r, cyan.400, blue.500)"
+          fontSize={{ base: 'xl', md: '2xl' }}
+        >
+          Result
+        </StatLabel>
+        <Center>
+          <StatNumber
+            bgClip="text"
+            // bgGradient="linear(to-r, cyan.400, blue.500)"
+            bgGradient={
+              TotalCalculate(productData) >= 0
+                ? 'linear(to-r, cyan.400, blue.500)'
+                : 'linear(to-r, pink.400, red.500)'
+            }
+            fontSize={{ base: '60px', md: '100px' }}
+          >
+            {TotalCalculate(productData) >= 0 ? '+' : ''}¥
+            {TotalCalculate(productData)}
+          </StatNumber>
+        </Center>
+        <StatHelpText fontSize={{ base: '30px', md: '50px' }}>
           <StatArrow
             type={RateCalculate(productData) > 0 ? 'increase' : 'decrease'}
           />
