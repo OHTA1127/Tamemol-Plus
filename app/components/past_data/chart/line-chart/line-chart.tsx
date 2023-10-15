@@ -1,5 +1,5 @@
 'use client'
-import { Box } from '@chakra-ui/react'
+import { Box, Center } from '@chakra-ui/react'
 import {
   CategoryScale,
   Chart as ChartJS,
@@ -83,6 +83,9 @@ function LineChart({ productData }: Props) {
         position: 'top' as const,
       },
       title: {
+        font: {
+          size: 20,
+        },
         display: true,
         text: 'Monthly Record',
       },
@@ -110,8 +113,10 @@ function LineChart({ productData }: Props) {
   }
 
   return (
-    <Box w="500px" h="300px">
-      <Line options={options} data={data} />
+    <Box bg="white" borderRadius="10px" shadow="2xl" w="900px" h="400px" p={6}>
+      <Center>
+        <Line options={options} data={data} width={600} height={300} />
+      </Center>
     </Box>
   )
 }
