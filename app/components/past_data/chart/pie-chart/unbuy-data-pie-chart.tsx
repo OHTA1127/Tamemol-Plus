@@ -1,5 +1,5 @@
 'use client'
-import { Box, Stack, Text } from '@chakra-ui/react'
+import { Flex, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
@@ -77,6 +77,17 @@ function UnbuyDataPieChart({ productData }: Props) {
     ],
   }
 
+  const options: {} = {
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: {
+          padding: 20,
+        },
+      },
+    },
+  }
+
   if (
     foodTotalSum !== 0 ||
     clotheTotalSum !== 0 ||
@@ -86,27 +97,18 @@ function UnbuyDataPieChart({ productData }: Props) {
     otherTotalSum !== 0
   ) {
     return (
-      <Box
-        bg="white"
-        w="440px"
-        h="500px"
-        borderRadius="10px"
-        shadow="2xl"
-        p={3}
-      >
-        <Stack>
-          <Text
-            pb={2}
-            as="b"
-            bgClip="text"
-            bgGradient="linear(to-r, cyan.400, blue.500)"
-            fontSize={{ base: 'xl', md: '2xl' }}
-          >
-            我慢した商品
-          </Text>
-          <Pie data={data} />
-        </Stack>
-      </Box>
+      <Flex bg="white" h="350px" borderRadius="10px" shadow="2xl" p={6}>
+        <Text
+          pb={2}
+          as="b"
+          bgClip="text"
+          bgGradient="linear(to-r, cyan.400, blue.500)"
+          fontSize={{ base: 'xl', md: '2xl' }}
+        >
+          我慢した商品
+        </Text>
+        <Pie data={data} options={options} />
+      </Flex>
     )
   } else {
     return <NotBuyProduct />

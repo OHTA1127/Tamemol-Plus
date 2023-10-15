@@ -113,9 +113,9 @@ function LineChart({ productData }: Props) {
   }
 
   return (
-    <Box bg="white" borderRadius="10px" shadow="2xl" w="900px" h="400px" p={6}>
+    <Box bg="white" borderRadius="10px" shadow="2xl" w="1000px" h="400px" p={6}>
       <Center>
-        <Line options={options} data={data} width={600} height={250} />
+        <Line options={options} data={data} width={700} height={250} />
       </Center>
     </Box>
   )

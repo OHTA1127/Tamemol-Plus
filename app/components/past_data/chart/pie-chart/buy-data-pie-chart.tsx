@@ -1,5 +1,5 @@
 'use client'
-import { Box, Stack, Text } from '@chakra-ui/react'
+import { Box, Center, Flex, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
@@ -97,26 +97,27 @@ function BuyDataPieChart({ productData }: Props) {
     otherTotalSum !== 0
   ) {
     return (
-      <Box
+      <Flex
         bg="white"
-        w="440px"
-        h="500px"
+        h="350px"
         borderRadius="10px"
         shadow="2xl"
         p={6}
       >
-        <Stack>
-          <Text
-            as="b"
-            bgClip="text"
-            bgGradient="linear(to-r, cyan.400, blue.500)"
-            fontSize={{ base: 'xl', md: '2xl' }}
-          >
-            買った商品
-          </Text>
-          <Pie data={data} options={options} />
-        </Stack>
-      </Box>
+        <Text
+          as="b"
+          bgClip="text"
+          bgGradient="linear(to-r, cyan.400, blue.500)"
+          fontSize={{ base: 'xl', md: '2xl' }}
+        >
+          買った商品
+        </Text>
+        <Box>
+          <Center>
+            <Pie data={data} options={options} />
+          </Center>
+        </Box>
+      </Flex>
     )
   } else {
     return <NotBuyProduct />

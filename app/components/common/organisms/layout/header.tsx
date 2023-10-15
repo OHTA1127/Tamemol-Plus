@@ -118,7 +118,7 @@ function Header() {
                 bgGradient="linear(to-r, cyan.400, blue.500)"
                 fontSize={{ base: 'md', md: 'lg' }}
               >
-                Past Data
+                Stats
               </Text>
             </Link>
           </Box>
