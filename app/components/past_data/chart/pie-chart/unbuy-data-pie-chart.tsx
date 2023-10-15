@@ -3,7 +3,7 @@ import { Box, Stack, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
-import NotBuyProduct from '../../common/organisms/chart/not-buy-product'
+import NotBuyProduct from '../../../common/organisms/chart/not-buy-product'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -102,7 +102,7 @@ function UnbuyDataPieChart({ productData }: Props) {
             bgGradient="linear(to-r, cyan.400, blue.500)"
             fontSize={{ base: 'xl', md: '2xl' }}
           >
-            我慢した商品！
+            我慢した商品
           </Text>
           <Pie data={data} />
         </Stack>

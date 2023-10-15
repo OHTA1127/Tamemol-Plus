@@ -3,8 +3,10 @@ import { Box, Flex } from '@chakra-ui/react'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
 import React from 'react'
-import BuyDataPieChart from './chart/buy-data-pie-chart'
-import UnbuyDataPieChart from './chart/unbuy-data-pie-chart'
+import LineChart from './chart/line-chart/line-chart'
+import BuyDataPieChart from './chart/pie-chart/buy-data-pie-chart'
+import UnbuyDataPieChart from './chart/pie-chart/unbuy-data-pie-chart'
+import PastDataStat from './stat/past-data-stat'
 
 async function SumamaryContainer() {
   const supabase = createServerComponentSupabaseClient<Database>({
@@ -20,12 +22,16 @@ async function SumamaryContainer() {
   const { data: profile } = await supabase.from('profile').select()
 
   return (
-    <Flex w="100%" h="100vh">
-      <Box>
+    <Box w="100%" h="100vh">
+      <Flex>
+        <LineChart productData={product} />
+        <PastDataStat productData={product} />
+      </Flex>
+      <Flex>
         <BuyDataPieChart productData={product} />
         <UnbuyDataPieChart productData={product} />
-      </Box>
-    </Flex>
+      </Flex>
+    </Box>
   )
 }
 
