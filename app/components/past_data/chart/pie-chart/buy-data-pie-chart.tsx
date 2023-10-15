@@ -1,8 +1,9 @@
+'use client'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import React from 'react'
 import { Pie } from 'react-chartjs-2'
-import NotBuyProduct from '../../common/organisms/chart/not-buy-product'
+import NotBuyProduct from '../../../common/organisms/chart/not-buy-product'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
@@ -20,37 +21,27 @@ type Product = {
 
 type Props = {
   productData: Product[] | null
-  selectMonth: number
 }
 
-function summaryPieChart({ productData, selectMonth }: Props) {
-  function calculateTotalSumByCategory(category: string) {
+function BuyDataPieChart({ productData }: Props) {
+  function TotalSumByCategory(category: string) {
     let totalSum = 0
 
     if (productData) {
       for (const item of productData) {
-        //dataが存在し、かつstatusがtrueの時に実行
-        if (item.date && item.status === true && item.category === category) {
-          const itemDate = new Date(item.date)
-          const itemMonth = itemDate.getMonth() + 1
-
-          if (itemMonth === selectMonth) {
-            totalSum += item.price || 0
-          }
+        if (item.status === true && item.category === category) {
+          totalSum += item.price || 0
         }
       }
-    } else {
-      console.log('Product is null')
     }
     return totalSum
   }
-
-  const foodTotalSum = calculateTotalSumByCategory('食料品')
-  const clotheTotalSum = calculateTotalSumByCategory('衣類')
-  const playTotalSum = calculateTotalSumByCategory('遊び')
-  const hobbyTotalSum = calculateTotalSumByCategory('趣味')
-  const sundriesTotalSum = calculateTotalSumByCategory('雑貨')
-  const otherTotalSum = calculateTotalSumByCategory('その他')
+  const foodTotalSum = TotalSumByCategory('食料品')
+  const clotheTotalSum = TotalSumByCategory('衣類')
+  const playTotalSum = TotalSumByCategory('遊び')
+  const hobbyTotalSum = TotalSumByCategory('趣味')
+  const sundriesTotalSum = TotalSumByCategory('雑貨')
+  const otherTotalSum = TotalSumByCategory('その他')
 
   const data = {
     labels: ['食料品', '衣類', '遊び', '趣味', '雑貨', 'その他'],
@@ -86,6 +77,17 @@ function summaryPieChart({ productData, selectMonth }: Props) {
     ],
   }
 
+  const options: {} = {
+    plugins: {
+      legend: {
+        position: 'right',
+        labels: {
+          padding: 20,
+        },
+      },
+    },
+  }
+
   if (
     foodTotalSum !== 0 ||
     clotheTotalSum !== 0 ||
@@ -101,19 +103,18 @@ function summaryPieChart({ productData, selectMonth }: Props) {
         h="500px"
         borderRadius="10px"
         shadow="2xl"
-        p={3}
+        p={6}
       >
         <Stack>
           <Text
-            pb={2}
             as="b"
             bgClip="text"
             bgGradient="linear(to-r, cyan.400, blue.500)"
             fontSize={{ base: 'xl', md: '2xl' }}
           >
-            Buying Trends
+            買った商品
           </Text>
-          <Pie data={data} />
+          <Pie data={data} options={options} />
         </Stack>
       </Box>
     )
@@ -121,4 +122,5 @@ function summaryPieChart({ productData, selectMonth }: Props) {
     return <NotBuyProduct />
   }
 }
-export default React.memo(summaryPieChart)
+
+export default React.memo(BuyDataPieChart)
