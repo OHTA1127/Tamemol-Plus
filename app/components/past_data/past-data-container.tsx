@@ -1,5 +1,5 @@
 import { Database } from '@/database.types'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Wrap, WrapItem } from '@chakra-ui/react'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
 import React from 'react'
@@ -19,18 +19,20 @@ async function SumamaryContainer() {
     .select()
     .order('created_at', { ascending: true })
 
-  const { data: profile } = await supabase.from('profile').select()
-
   return (
     <Box w="100%" h="100vh">
-      <Flex>
-        <LineChart productData={product} />
-        <PastDataStat productData={product} />
-      </Flex>
-      <Flex>
-        <BuyDataPieChart productData={product} />
-        <UnbuyDataPieChart productData={product} />
-      </Flex>
+      <Wrap p={{ base: 4, md: 12 }} justifyContent="center">
+        <WrapItem>
+          <LineChart productData={product} />
+          <PastDataStat productData={product} />
+        </WrapItem>
+      </Wrap>
+      <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
+        <WrapItem>
+          <BuyDataPieChart productData={product} />
+          <UnbuyDataPieChart productData={product} />
+        </WrapItem>
+      </Wrap>
     </Box>
   )
 }
