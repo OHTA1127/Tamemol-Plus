@@ -41,7 +41,7 @@ function SummaryBuyMoney({ productData, selectMonth }: Props) {
     if (productData) {
       for (const item of productData) {
         //dataが存在し、かつstatusがfalseの時に実行
-        if (item.date && item.status) {
+        if (item.date && item.status === false) {
           const itemDate = new Date(item.date)
           const itemMonth = itemDate.getMonth() + 1
           const itemYear = itemDate.getFullYear()

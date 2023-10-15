@@ -1,6 +1,6 @@
 'use client'
-import React, { useEffect, useState } from 'react'
 import { Box, Stack, Text } from '@chakra-ui/react'
+import React, { useEffect, useState } from 'react'
 
 type Product = {
   category: string | null
@@ -41,7 +41,7 @@ function SummaryUnbuyMoney({ productData, selectMonth }: Props) {
     if (productData) {
       for (const item of productData) {
         //dataが存在し、かつstatusがfalseの時に実行
-        if (item.date && item.status === false) {
+        if (item.date && item.status === true) {
           const itemDate = new Date(item.date)
           const itemMonth = itemDate.getMonth() + 1
           const itemYear = itemDate.getFullYear()

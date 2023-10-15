@@ -1,27 +1,18 @@
 'use client'
 import { Box, Center } from '@chakra-ui/react'
 import {
+  BarElement,
   CategoryScale,
   Chart as ChartJS,
   Legend,
-  LineElement,
   LinearScale,
-  PointElement,
   Title,
   Tooltip,
 } from 'chart.js'
 import React from 'react'
-import { Line } from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-)
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 type Product = {
   category: string | null
@@ -39,7 +30,7 @@ type Props = {
   productData: Product[] | null
 }
 
-function LineChart({ productData }: Props) {
+function BarChart({ productData }: Props) {
   function organizeDataByMonth(productData: Product[] | null, status: boolean) {
     if (!productData) return []
 
@@ -71,10 +62,27 @@ function LineChart({ productData }: Props) {
     return monthlyDataArray
   }
 
-  //statusがfalse（買った商品）の月ごとの配列を取得
+  //statusがtrue（買った商品）の月ごとの配列を取得
   const monthlyBuyData = organizeDataByMonth(productData, false)
-  //statusがtrue（我慢した商品）の月ごとの配列を取得
+  //statusがfalse（我慢した商品）の月ごとの配列を取得
   const monthlyUnBuyData = organizeDataByMonth(productData, true)
+
+  const labels = monthlyUnBuyData?.map((data) => data.month)
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: '我慢した金額',
+        data: monthlyUnBuyData.map((data) => data.totalAmount),
+        backgroundColor: 'rgba(255, 99, 132, 0.5)',
+      },
+      {
+        label: '買った金額',
+        data: monthlyBuyData.map((data) => data.totalAmount),
+        backgroundColor: 'rgba(53, 162, 235, 0.5)',
+      },
+    ],
+  }
 
   const options = {
     responsive: true,
@@ -83,45 +91,19 @@ function LineChart({ productData }: Props) {
         position: 'top' as const,
       },
       title: {
-        font: {
-          size: 20,
-        },
         display: true,
-        text: 'Monthly Record',
+        text: 'Chart.js Bar Chart',
       },
     },
-  }
-
-  const labels = monthlyUnBuyData?.map((data) => data.month)
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: '我慢した金額',
-        data: monthlyUnBuyData.map((data) => data.totalAmount),
-        borderColor: 'rgb(255, 99, 132)',
-        backgroundColor: 'rgba(255, 99, 132, 0.5)',
-      },
-      {
-        label: '買った金額',
-        data: monthlyBuyData.map((data) => data.totalAmount),
-        borderColor: 'rgb(53, 162, 235)',
-        backgroundColor: 'rgba(53, 162, 235, 0.5)',
-      },
-    ],
   }
 
   return (
     <Box bg="white" borderRadius="10px" shadow="2xl" w="750px" h="350px" p={6}>
       <Center>
-        <Box>
-          {' '}
-          <Line options={options} data={data} width={700} height={300} />
-        </Box>
+        <Bar options={options} data={data} width={700} height={300} />
       </Center>
     </Box>
   )
 }
 
-export default React.memo(LineChart)
+export default React.memo(BarChart)
