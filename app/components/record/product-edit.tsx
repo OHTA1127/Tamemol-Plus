@@ -4,8 +4,7 @@ import useStore from '@/store'
 import supabase from '@/utils/supabase'
 import { Box, Button, Center, FormLabel, Input, Select } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
-import React from 'react'
-import { FormEvent } from 'react'
+import React, { FormEvent } from 'react'
 
 function EditProduct() {
   const router = useRouter()
@@ -13,8 +12,6 @@ function EditProduct() {
   const { loginUser } = useStore()
   const updateProduct = useStore((state) => state.updateEditProduct)
   const reset = useStore((state) => state.resetEditProduct)
-
-  
 
   async function submitHandler(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()

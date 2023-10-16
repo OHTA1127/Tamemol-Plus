@@ -1,4 +1,5 @@
 'use client'
+import { Database } from '@/database.types'
 import { Box, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
 import React, { useState } from 'react'
 import SummaryPieChart from './chart/summary-pie-chart'
@@ -9,25 +10,9 @@ import SummaryUnbuyResult from './data/summary-unbuy-result'
 import SummaryBuyTable from './table/summary-buy-table'
 import SummaryUnbuyTable from './table/summary-unbuy-table'
 
-type Product = {
-  category: string | null
-  created_at: string
-  date: string | null
-  detail: string | null
-  id: string
-  name: string | null
-  price: number | null
-  status: boolean
-  user_id: string | null
-}
+type Product = Database['public']['Tables']['products']['Row']
 
-type Profile = {
-  created_at: string
-  goal_money: number | null
-  id: string
-  name: string | null
-  user_id: string | null
-}
+type Profile = Database['public']['Tables']['profile']['Row']
 
 type Props = {
   productData: Product[] | null

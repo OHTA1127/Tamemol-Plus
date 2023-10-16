@@ -1,16 +1,11 @@
 'use client'
+import { Database } from '@/database.types'
 import useStore from '@/store'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
 import React from 'react'
 
-type ProfileData = {
-  id: string
-  created_at: string
-  name: string | null
-  goal_money: number | null
-  user_id: string | null
-}
+type ProfileData = Database['public']['Tables']['profile']['Row']
 
 type Props = {
   profileGoalMoney: number
