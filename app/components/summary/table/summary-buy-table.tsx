@@ -1,6 +1,8 @@
 'use client'
+import supabase from '@/utils/supabase'
 import {
   Box,
+  Button,
   Table,
   TableContainer,
   Tbody,
@@ -10,6 +12,7 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react'
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import './summary-table-paginate.css'
@@ -32,6 +35,7 @@ type Props = {
 }
 
 function SummaryBuyTable({ productData, selectMonth }: Props) {
+  const router = useRouter()
   const [buyProductList, setBuyProductList] = useState<Product[]>([])
 
   useEffect(() => {
@@ -55,7 +59,7 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
   }, [productData, selectMonth])
 
   //1ページに何個表示するか
-  const productsPerPage = 7
+  const productsPerPage = 5
 
   //表示される最初の商品
   const [productsOffset, setProductsOffset] = useState(0)
@@ -73,6 +77,11 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
       ? (e.selected * productsPerPage) % buyProductList?.length
       : 0
     setProductsOffset(newOffset)
+  }
+
+  async function deleteMutate(id: string) {
+    await supabase.from('products').delete().eq('id', id)
+    router.refresh()
   }
 
   return (
@@ -93,6 +102,7 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
               <Th>商品名</Th>
               <Th>カテゴリー</Th>
               <Th>価格</Th>
+              <Th></Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -101,6 +111,18 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
                 <Td>{item.name}</Td>
                 <Td>{item.category}</Td>
                 <Td>{item.price}</Td>
+                <Td>
+                  <Button
+                    color="white"
+                    background="blue.700"
+                    _hover={{ background: 'blue.500' }}
+                    onClick={() => {
+                      deleteMutate(item.id)
+                    }}
+                  >
+                    削除
+                  </Button>
+                </Td>
               </Tr>
             ))}
           </Tbody>
