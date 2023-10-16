@@ -3,7 +3,6 @@ import { Database } from '@/database.types'
 import supabase from '@/utils/supabase'
 import {
   Box,
-  Button,
   Table,
   TableContainer,
   Tbody,
@@ -16,6 +15,7 @@ import {
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
+import DeleteButton from '../../common/atoms/button/delete-button'
 import './summary-table-paginate.css'
 
 type Product = Database['public']['Tables']['products']['Row']
@@ -103,16 +103,7 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
                 <Td>{item.category}</Td>
                 <Td>{item.price}</Td>
                 <Td>
-                  <Button
-                    color="white"
-                    background="blue.700"
-                    _hover={{ background: 'blue.500' }}
-                    onClick={() => {
-                      deleteMutate(item.id)
-                    }}
-                  >
-                    削除
-                  </Button>
+                  <DeleteButton itemId={item.id} />
                 </Td>
               </Tr>
             ))}

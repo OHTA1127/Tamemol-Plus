@@ -1,8 +1,8 @@
 'use client'
+import { Database } from '@/database.types'
 import supabase from '@/utils/supabase'
 import {
   Box,
-  Button,
   Table,
   TableContainer,
   Tbody,
@@ -16,7 +16,7 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import './summary-table-paginate.css'
-import { Database } from '@/database.types'
+import DeleteButton from '../../common/atoms/button/delete-button'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -103,16 +103,7 @@ function SummaryUnbuyTable({ productData, selectMonth }: Props) {
                 <Td>{item.category}</Td>
                 <Td>{item.price}</Td>
                 <Td>
-                  <Button
-                    color="white"
-                    background="blue.700"
-                    _hover={{ background: 'blue.500' }}
-                    onClick={() => {
-                      deleteMutate(item.id)
-                    }}
-                  >
-                    削除
-                  </Button>
+                  <DeleteButton itemId={item.id} />
                 </Td>
               </Tr>
             ))}

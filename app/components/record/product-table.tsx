@@ -16,6 +16,7 @@ import {
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate'
+import DeleteButton from '../common/atoms/button/delete-button'
 import './product-paginate.css'
 
 type Product = Database['public']['Tables']['products']['Row']
@@ -116,16 +117,7 @@ function ProductTable({ currentMonthProducts }: Props) {
                       </Button>
                     </Td>
                     <Td>
-                      <Button
-                        color="white"
-                        background="blue.700"
-                        _hover={{ background: 'blue.500' }}
-                        onClick={() => {
-                          deleteMutate(currentProduct.id)
-                        }}
-                      >
-                        削除
-                      </Button>
+                      <DeleteButton itemId={currentProduct.id} />
                     </Td>
                   </Tr>
                 ))}
@@ -142,7 +134,6 @@ function ProductTable({ currentMonthProducts }: Props) {
             pageLinkClassName="page-link rounded-full" // a
             activeClassName="active" // active.li
             activeLinkClassName="active" // active.li < a
-            
             // 戻る・進む関連
             previousClassName="page-item" // li
             nextClassName="page-item" // li
@@ -150,15 +141,12 @@ function ProductTable({ currentMonthProducts }: Props) {
             previousLinkClassName="previous-link"
             nextLabel={'>'} // a
             nextLinkClassName="next-link"
-           
             // 先頭 or 末尾に行ったときにそれ以上戻れ(進め)なくする
             disabledClassName="disabled-button d-none"
-           
             // 中間ページの省略表記関連
             breakLabel="..."
             breakClassName="page-item"
             breakLinkClassName="page-link"
-        
           />
         </>
       ) : (
