@@ -77,7 +77,7 @@ function PastDataStat({ productData }: Props) {
         p={6}
       >
         <StatLabel
-          as="b"
+          fontWeight="bold"
           bgClip="text"
           bgGradient="linear(to-r, cyan.400, blue.500)"
           fontSize={{ base: 'xl', md: '2xl' }}
