@@ -1,3 +1,4 @@
+import { Database } from '@/database.types'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import React from 'react'
@@ -6,17 +7,7 @@ import NotBuyProduct from '../../common/organisms/chart/not-buy-product'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
-type Product = {
-  category: string | null
-  created_at: string
-  date: string | null
-  detail: string | null
-  id: string
-  name: string | null
-  price: number | null
-  status: boolean
-  user_id: string | null
-}
+type Product = Database['public']['Tables']['products']['Row']
 
 type Props = {
   productData: Product[] | null

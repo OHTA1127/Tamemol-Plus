@@ -16,18 +16,9 @@ import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import './summary-table-paginate.css'
+import { Database } from '@/database.types'
 
-type Product = {
-  category: string | null
-  created_at: string
-  date: string | null
-  detail: string | null
-  id: string
-  name: string | null
-  price: number | null
-  status: boolean
-  user_id: string | null
-}
+type Product = Database['public']['Tables']['products']['Row']
 
 type Props = {
   productData: Product[] | null

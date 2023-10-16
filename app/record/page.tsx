@@ -7,9 +7,9 @@ import BuyMoney from '../components/common/molecules/money/buy-money'
 import GoalMoney from '../components/common/molecules/money/goal-money'
 import UnbuyMoney from '../components/common/molecules/money/unbuy-money'
 import PieChartContainer from '../components/common/organisms/chart/pie-chart-container'
-import EditProduct from '../components/common/organisms/products/product-edit'
-import ProductList from '../components/common/organisms/products/product-list'
-import ProductResult from '../components/common/organisms/products/product-result'
+import EditProduct from '../components/record/product-edit'
+import ProductList from '../components/record/product-list'
+import ProductResult from '../components/record/product-result'
 
 async function Record() {
   const supabase = createServerComponentSupabaseClient<Database>({
