@@ -4,10 +4,10 @@ import supabase from '@/utils/supabase'
 import {
   Box,
   Button,
+  Center,
   Flex,
   FormLabel,
   Heading,
-  Image,
   Input,
   Text,
 } from '@chakra-ui/react'
@@ -52,13 +52,8 @@ function Auth() {
   }
 
   return (
-    <Flex w="100%" h="100vh" bgGradient="linear(to-r, cyan.400, blue.400)">
-      <Box
-        w="50%"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-      >
+    <Box w="100%" h="100vh" bgImage="sea.jpg" bgSize="cover">
+      <Center h="100%">
         <Box
           boxShadow="lg"
           w="600px"
@@ -67,14 +62,12 @@ function Auth() {
           borderRadius="8px"
           border="1px solid"
           borderColor="gray.100"
-          m="0 auto"
           color="white"
-          bgColor="white"
+          backdropFilter="auto"
+          backdropBlur="20px"
         >
-          <Box w="100%">
+          <Box>
             <Heading
-              bgGradient="linear(to-r, cyan.400, blue.500)"
-              bgClip="text"
               fontWeight="extrabold"
               fontSize={40}
               mb="48px"
@@ -84,16 +77,13 @@ function Auth() {
               Welcome to Tamemol!
             </Heading>
             <form onSubmit={handleSubmit}>
-              <FormLabel fontWeight="bold" color="teal.800">
-                Eメール
-              </FormLabel>
+              <FormLabel fontWeight="bold">Eメール</FormLabel>
               <Input
-                color="gray.600"
                 type="text"
                 size="lg"
                 mb="8"
                 placeholder="Email"
-                _placeholder={{ color: 'teal.800' }}
+                _placeholder={{ color: 'white' }}
                 variant="outline"
                 required
                 value={email}
@@ -101,17 +91,14 @@ function Auth() {
                   setEmail(e.target.value)
                 }}
               />
-              <FormLabel fontWeight="bold" color="teal.800">
-                パスワード
-              </FormLabel>
+              <FormLabel fontWeight="bold">パスワード</FormLabel>
               <Input
-                color="gray.600"
                 type="password"
                 size="lg"
                 mb="8"
                 required
                 placeholder="Password"
-                _placeholder={{ color: 'teal.800' }}
+                _placeholder={{ color: 'white' }}
                 variant="outline"
                 value={password}
                 onChange={(e) => {
@@ -122,28 +109,26 @@ function Auth() {
                 <Button
                   type="submit"
                   color="white"
-                  background="blue.700"
+                  background="cyan.700"
                   size="lg"
                   paddingX="80px"
                   m="0 auto"
-                  _hover={{ background: 'teal.300' }}
+                  _hover={{ background: 'cyan.400' }}
                 >
                   {isLogin ? 'Login' : 'Sign Up'}
                 </Button>
                 <Box textAlign="center" mt={5}>
                   {isLogin ? (
-                    <Text color="teal.800">
-                      Creating an account for the first time?
-                    </Text>
+                    <Text>Creating an account for the first time?</Text>
                   ) : (
-                    <Text color="teal.800">Already have an account ?</Text>
+                    <Text>Already have an account ?</Text>
                   )}
                   <Button
                     mt={1}
                     color="white"
-                    background="blue.700"
+                    background="cyan.700"
                     onClick={() => setIsLogin(!isLogin)}
-                    _hover={{ background: 'blue.500' }}
+                    _hover={{ background: 'cyan.400' }}
                   >
                     {isLogin ? (
                       <Text>Sign up here</Text>
@@ -156,9 +141,9 @@ function Auth() {
             </form>
           </Box>
         </Box>
-      </Box>
-      <Image w="50%" h="100vh" alt="画像" src="auth_image.png" />
-    </Flex>
+      </Center>
+      {/* <Image w="50%" h="100vh" alt="画像" src="auth_image.png" /> */}
+    </Box>
   )
 }
 
