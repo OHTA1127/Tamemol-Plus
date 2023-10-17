@@ -1,5 +1,5 @@
-import { Text } from '@chakra-ui/react'
+import TopPageContainer from './components/top/top-page-container'
 
-export default function Home() {
-  return <Text>Topページです</Text>
+export default function Top() {
+  return <TopPageContainer />
 }
