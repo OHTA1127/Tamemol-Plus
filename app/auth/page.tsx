@@ -55,7 +55,7 @@ function Auth() {
     <Box w="100%" h="100vh" bgImage="sea.jpg" bgSize="cover">
       <Center h="100%">
         <Box
-          boxShadow="lg"
+          boxShadow="xl"
           w="600px"
           paddingY="120px"
           paddingX="32px"
@@ -77,7 +77,7 @@ function Auth() {
               Welcome to Tamemol!
             </Heading>
             <form onSubmit={handleSubmit}>
-              <FormLabel fontWeight="bold">Eメール</FormLabel>
+              <FormLabel fontWeight="extrabold">Eメール</FormLabel>
               <Input
                 type="text"
                 size="lg"
@@ -91,7 +91,7 @@ function Auth() {
                   setEmail(e.target.value)
                 }}
               />
-              <FormLabel fontWeight="bold">パスワード</FormLabel>
+              <FormLabel fontWeight="extrabold">パスワード</FormLabel>
               <Input
                 type="password"
                 size="lg"
