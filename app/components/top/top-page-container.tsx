@@ -8,7 +8,7 @@ export default function TopPageContainer() {
   return (
     <Box bgImage="sea.jpg" bgSize="cover" w="100%" h="100vh" p={20}>
       <Flex h="100%" alignItems="center">
-        <Box w="50%">
+        <Box w="60%">
           <Box>
             <Fade in={true} delay={0.5}>
               <Text
@@ -31,7 +31,7 @@ export default function TopPageContainer() {
                 fontWeight="bold"
                 fontFamily="mono"
               >
-                I will help you be a little more patient.
+                Tamemol will help you be a little more patient.
               </Text>
             </Fade>
           </Box>
