@@ -22,7 +22,7 @@ async function Record() {
   const profileGoalMoney = profile?.[0]?.goal_money || 1000
 
   return (
-    <Box w="100%" h="100%">
+    <Box w="100%" h="100vh">
       <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
         <WrapItem>
           <GoalMoney

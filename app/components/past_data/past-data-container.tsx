@@ -21,7 +21,7 @@ async function SumamaryContainer() {
     .order('created_at', { ascending: true })
 
   return (
-    <Box w="100%" h="100vh">
+    <Box h="100vh">
       <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
         <WrapItem>
           <LineChart productData={product} />
