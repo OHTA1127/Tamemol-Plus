@@ -85,7 +85,7 @@ function ProductTable({ currentMonthProducts }: Props) {
                     <Td>{currentProduct.name}</Td>
                     <Td>{currentProduct.category}</Td>
                     <Td>{currentProduct.price}</Td>
-                    <Td>
+                    <Td textAlign="center">
                       <input
                         type="checkbox"
                         checked={currentProduct.status}
