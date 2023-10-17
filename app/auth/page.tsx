@@ -12,9 +12,9 @@ import {
   Text,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
-import { FormEvent, useState } from 'react'
+import React, { FormEvent, useState } from 'react'
 
-export default function Auth() {
+function Auth() {
   const [isLogin, setIsLogin] = useState(true)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -161,3 +161,5 @@ export default function Auth() {
     </Flex>
   )
 }
+
+export default React.memo(Auth)
