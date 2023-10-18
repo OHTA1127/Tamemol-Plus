@@ -53,18 +53,6 @@ logo=typescript&style=for-the-badge">
 | ![Topページ](top.png) | TD             |
 | TD                    | TD             |
 
-<table>
-  <thead>
-    <tr>
-      <th>aaaaa</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><img src='top.jpg'></td>
-    </tr>
-  </tbody>
-</table>
 
 <ul>
   <li>我慢の記録<br>
