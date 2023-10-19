@@ -1,3 +1,4 @@
+import { Database } from '@/database.types'
 import {
   Center,
   Stat,
@@ -9,23 +10,16 @@ import {
 } from '@chakra-ui/react'
 import React from 'react'
 
-type Product = {
-  category: string | null
-  created_at: string
-  date: string | null
-  detail: string | null
-  id: string
-  name: string | null
-  price: number | null
-  status: boolean
-  user_id: string | null
-}
+type Product = Database['public']['Tables']['products']['Row']
+
+type UserProfile = Database['public']['Tables']['profile']['Row']
 
 type Props = {
+  userProfile: UserProfile[] | null
   productData: Product[] | null
 }
 
-function PastDataStat({ productData }: Props) {
+function PastDataStat({ userProfile, productData }: Props) {
   function TotalCalculate(productData: Product[] | null) {
     if (productData === null) {
       return 0
@@ -66,6 +60,11 @@ function PastDataStat({ productData }: Props) {
     return rate
   }
 
+  const userName =
+    userProfile && userProfile[0] && userProfile[0].name
+      ? userProfile[0].name
+      : 'ゲスト'
+
   return (
     <StatGroup>
       <Stat
@@ -82,7 +81,7 @@ function PastDataStat({ productData }: Props) {
           bgGradient="linear(to-r, cyan.400, blue.500)"
           fontSize={{ base: 'xl', md: '2xl' }}
         >
-          Result
+          {userName}の結果
         </StatLabel>
         <Center>
           <StatNumber

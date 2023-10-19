@@ -1,9 +1,9 @@
-import React from 'react'
-import PieChart from './pie-chart'
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
-import { headers, cookies } from 'next/headers'
+import { cookies, headers } from 'next/headers'
+import React from 'react'
 import NotBuyProduct from './not-buy-product'
+import PieChart from './pie-chart'
 
 async function PieChartContainer() {
   const supabase = createServerComponentSupabaseClient<Database>({
@@ -15,6 +15,10 @@ async function PieChartContainer() {
     .from('products')
     .select()
     .order('created_at', { ascending: true })
+
+  const { data: profile } = await supabase
+    .from('profile')
+    .select()
 
   //現在の日付を取得
   const currentDate = new Date()
@@ -62,6 +66,7 @@ async function PieChartContainer() {
   ) {
     return (
       <PieChart
+        userProfile={profile}
         foodData={foodTotalSum}
         clotheData={clotheTotalSum}
         playData={playTotalSum}

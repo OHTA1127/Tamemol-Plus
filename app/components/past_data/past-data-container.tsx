@@ -20,6 +20,8 @@ async function SumamaryContainer() {
     .select()
     .order('created_at', { ascending: true })
 
+  const { data: profile } = await supabase.from('profile').select()
+
   return (
     <Box h="100vh">
       <Wrap p={{ base: 4, md: 10 }} justifyContent="center">
@@ -41,7 +43,7 @@ async function SumamaryContainer() {
         </WrapItem>
         <Spacer />
         <WrapItem>
-          <PastDataStat productData={product} />
+          <PastDataStat userProfile={profile} productData={product} />
         </WrapItem>
       </Wrap>
     </Box>

@@ -1,4 +1,5 @@
 'use client'
+import { Database } from '@/database.types'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
 import React from 'react'
@@ -6,7 +7,10 @@ import { Pie } from 'react-chartjs-2'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
+type UserProfile = Database['public']['Tables']['profile']['Row']
+
 type Props = {
+  userProfile: UserProfile[] | null
   foodData: number
   clotheData: number
   playData: number
@@ -16,6 +20,7 @@ type Props = {
 }
 
 function PieChart({
+  userProfile,
   foodData,
   clotheData,
   playData,
@@ -23,6 +28,11 @@ function PieChart({
   sundriesData,
   otherData,
 }: Props) {
+  const userName =
+    userProfile && userProfile[0] && userProfile[0].name
+      ? userProfile[0].name
+      : 'ゲスト'
+
   const data = {
     labels: ['食料品', '衣類', '遊び', '趣味', '雑貨', 'その他'],
     datasets: [
@@ -66,7 +76,7 @@ function PieChart({
           bgGradient="linear(to-r, cyan.400, blue.500)"
           fontSize={{ base: 'xl', md: '2xl' }}
         >
-          Buying Trends
+          {userName}の傾向
         </Text>
         <Pie data={data} />
         <Text
