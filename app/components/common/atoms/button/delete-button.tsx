@@ -4,10 +4,24 @@ import { useRouter } from 'next/navigation'
 import React from 'react'
 
 type Props = {
+  fontSize?: string
+  mobileFontSize?: string
+  height?: string
+  width?: string
+  mobileHeight?: string
+  mobileWidth?: string
   itemId: string
 }
 
-function DeleteButton({ itemId }: Props) {
+function DeleteButton({
+  fontSize,
+  mobileFontSize,
+  height,
+  width,
+  mobileHeight,
+  mobileWidth,
+  itemId,
+}: Props) {
   const router = useRouter()
 
   async function deleteMutate(id: string) {
@@ -16,6 +30,9 @@ function DeleteButton({ itemId }: Props) {
   }
   return (
     <Button
+      fontSize={{ base: mobileFontSize, md: fontSize }}
+      w={{ base: mobileWidth, md: width }}
+      h={{ base: mobileHeight, md: height }}
       color="white"
       background="blue.700"
       _hover={{ background: 'blue.500' }}

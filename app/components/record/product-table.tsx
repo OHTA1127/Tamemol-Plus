@@ -56,19 +56,20 @@ function ProductTable({ currentMonthProducts }: Props) {
     resetProduct()
     router.refresh()
   }
-
   return (
     <>
       {currentProducts && currentProducts.length ? (
         <>
           <TableContainer>
-            <Table>
+            <Table size={{ base: 'xs', md: 'md' }}>
               <Thead>
                 <Tr>
-                  <Th>商品名</Th>
-                  <Th>カテゴリー</Th>
-                  <Th>価格</Th>
-                  <Th>我慢中はチェック！</Th>
+                  <Th fontSize={{ base: '8px', md: '16px' }}>商品名</Th>
+                  <Th fontSize={{ base: '8px', md: '16px' }}>カテゴリー</Th>
+                  <Th fontSize={{ base: '8px', md: '16px' }}>価格</Th>
+                  <Th fontSize={{ base: '8px', md: '16px' }}>
+                    我慢中はチェック！
+                  </Th>
                   <Th></Th>
                   <Th></Th>
                 </Tr>
@@ -76,9 +77,15 @@ function ProductTable({ currentMonthProducts }: Props) {
               <Tbody>
                 {currentProducts.map((currentProduct) => (
                   <Tr key={currentProduct.id}>
-                    <Td>{currentProduct.name}</Td>
-                    <Td>{currentProduct.category}</Td>
-                    <Td>{currentProduct.price?.toLocaleString()}</Td>
+                    <Td fontSize={{ base: '8px', md: '16px' }}>
+                      {currentProduct.name}
+                    </Td>
+                    <Td fontSize={{ base: '8px', md: '16px' }}>
+                      {currentProduct.category}
+                    </Td>
+                    <Td fontSize={{ base: '8px', md: '16px' }}>
+                      {currentProduct.price?.toLocaleString()}
+                    </Td>
                     <Td textAlign="center">
                       <input
                         type="checkbox"
@@ -93,6 +100,9 @@ function ProductTable({ currentMonthProducts }: Props) {
                     </Td>
                     <Td>
                       <Button
+                        w={{ base: '40px', md: '64px' }}
+                        h={{ base: '20px', md: '40px' }}
+                        fontSize={{ base: '8px', md: '16px' }}
                         color="white"
                         background="blue.700"
                         _hover={{ background: 'blue.500' }}
@@ -111,7 +121,15 @@ function ProductTable({ currentMonthProducts }: Props) {
                       </Button>
                     </Td>
                     <Td>
-                      <DeleteButton itemId={currentProduct.id} />
+                      <DeleteButton
+                        fontSize="16px"
+                        mobileFontSize="8px"
+                        width="64px"
+                        mobileWidth="40px"
+                        height="40px"
+                        mobileHeight="20px"
+                        itemId={currentProduct.id}
+                      />
                     </Td>
                   </Tr>
                 ))}

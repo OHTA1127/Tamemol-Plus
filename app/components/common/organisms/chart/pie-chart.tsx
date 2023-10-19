@@ -66,21 +66,34 @@ function PieChart({
       },
     ],
   }
+
+  const options = {
+    maintainAspectRatio: true,
+    responsive: true,
+  }
+
   return (
-    <Box bg="white" w="390px" h="500px" borderRadius="10px" shadow="2xl" p={3}>
+    <Box
+      bg="white"
+      w={{ base: '160px', md: '390px' }}
+      h={{ base: '350px', md: '500px' }}
+      borderRadius="10px"
+      shadow="2xl"
+      p={3}
+    >
       <Stack>
         <Text
-          pb={3}
+          pb={{ base: 1, md: 3 }}
           as="b"
           bgClip="text"
           bgGradient="linear(to-r, cyan.400, blue.500)"
-          fontSize={{ base: 'xl', md: '2xl' }}
+          fontSize={{ base: 'sm', md: '2xl' }}
         >
           {userName}の傾向
         </Text>
-        <Pie data={data} />
+        <Pie data={data} options={options} />
         <Text
-          pt={6}
+          pt={{ base: 4, md: 6 }}
           align="center"
           as="b"
           bgClip="text"

@@ -18,12 +18,12 @@ function GoalMoney({ profileGoalMoney, userData }: Props) {
   return (
     <Link href="/edit_profile">
       <Box
-        w="360px"
-        h="120px"
+        w={{ base: '165px', md: '360px' }}
+        h={{ base: '70px', md: '120px' }}
         bgGradient="linear(to-r, cyan.400, blue.500)"
         borderRadius="10px"
         shadow="2xl"
-        p={2}
+        p={{ base: 0, md: 2 }}
         _hover={{ cursor: 'pointer', opacity: 0.8 }}
         // onClickイベントでザスタンドを使用してグローバルステートに現在のprofileの値をセットする
         onClick={() => {
@@ -37,12 +37,18 @@ function GoalMoney({ profileGoalMoney, userData }: Props) {
         }}
       >
         <Stack>
-          <Text fontSize="md" fontWeight="bold" pt={2} pl={3} color="white">
+          <Text
+            fontSize={{ base: 'xs', md: 'md' }}
+            fontWeight="bold"
+            pt={2}
+            pl={3}
+            color="white"
+          >
             目標金額
           </Text>
           <Text
             textAlign="center"
-            fontSize="5xl"
+            fontSize={{ base: 'xl', md: '5xl' }}
             fontWeight="bold"
             color="white"
           >

@@ -1,9 +1,10 @@
 import {
-  Drawer,
-  DrawerOverlay,
-  DrawerContent,
-  DrawerBody,
   Button,
+  Center,
+  Drawer,
+  DrawerBody,
+  DrawerContent,
+  DrawerOverlay,
 } from '@chakra-ui/react'
 import React from 'react'
 
@@ -26,16 +27,42 @@ function MenuDrawer({
     <Drawer placement="left" size="xs" onClose={onClose} isOpen={isOpen}>
       <DrawerOverlay>
         <DrawerContent>
-          <DrawerBody p={0} bg="gray.100">
-            <Button w="100%" onClick={onClickHome}>
-              TOP
-            </Button>
-            <Button w="100%" onClick={onClickSummary}>
-              Summary
-            </Button>
-            <Button w="100%" onClick={onClickPastData}>
-              Past Data
-            </Button>
+          <DrawerBody p={0}>
+            <Center>
+              <Button
+                fontWeight="extrabold"
+                color="white"
+                w="60%"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                onClick={onClickHome}
+                marginY={5}
+              >
+                TOP
+              </Button>
+            </Center>
+            <Center>
+              <Button
+                fontWeight="extrabold"
+                color="white"
+                w="60%"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                onClick={onClickSummary}
+                mb={5}
+              >
+                Summary
+              </Button>
+            </Center>
+            <Center>
+              <Button
+                fontWeight="extrabold"
+                color="white"
+                w="60%"
+                bgGradient="linear(to-r, cyan.400, blue.500)"
+                onClick={onClickPastData}
+              >
+                Stats
+              </Button>
+            </Center>
           </DrawerBody>
         </DrawerContent>
       </DrawerOverlay>

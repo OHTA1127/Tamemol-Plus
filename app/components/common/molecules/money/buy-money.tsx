@@ -49,19 +49,30 @@ async function BuyMoney() {
 
   return (
     <Box
-      w="360px"
-      h="120px"
+      w={{ base: '165px', md: '360px' }}
+      h={{ base: '70px', md: '120px' }}
       bgGradient="linear(to-r, 
         #79F1A4, #0E5CAD)"
       borderRadius="10px"
       shadow="2xl"
-      p={2}
+      p={{ base: 0, md: 2 }}
     >
       <Stack>
-        <Text fontSize="md" fontWeight="bold" pt={2} pl={3} color="white">
+        <Text
+          fontSize={{ base: 'xs', md: 'md' }}
+          fontWeight="bold"
+          pt={2}
+          pl={3}
+          color="white"
+        >
           買った金額
         </Text>
-        <Text textAlign="center" fontSize="5xl" fontWeight="bold" color="white">
+        <Text
+          textAlign="center"
+          fontSize={{ base: 'xl', md: '5xl' }}
+          fontWeight="bold"
+          color="white"
+        >
           ¥ {formattedTotalSum}
         </Text>
       </Stack>

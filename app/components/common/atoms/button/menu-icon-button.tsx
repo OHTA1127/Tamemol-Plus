@@ -15,6 +15,7 @@ export default function MenuIconButton({ onOpen }: Props) {
       variant="unstyled"
       display={{ base: 'block', md: 'none' }}
       onClick={onOpen}
+      bgGradient="linear(to-r, cyan.400, blue.500)"
     />
   )
 }

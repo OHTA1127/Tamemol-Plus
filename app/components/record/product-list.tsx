@@ -37,13 +37,20 @@ async function ProductList() {
   })
 
   return (
-    <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" w="700px" p={3}>
+    <Box
+      bg="white"
+      borderRadius="10px"
+      shadow="2xl"
+      h={{ base: '250px', md: '500px' }}
+      w={{ base: '350px', md: '730px' }}
+      p={3}
+    >
       <Stack>
         <Text
           as="b"
           bgClip="text"
           bgGradient="linear(to-r, cyan.400, blue.500)"
-          fontSize={{ base: 'xl', md: '2xl' }}
+          fontSize={{ base: 'sm', md: '2xl' }}
         >
           商品一覧
         </Text>

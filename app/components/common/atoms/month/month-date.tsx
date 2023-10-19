@@ -26,7 +26,7 @@ function MonthData() {
   }, [])
 
   return (
-    <Text fontSize="md" fontWeight="bold" pt={2} pl={3} color="white">
+    <Text fontSize={{ base: 'xs', md: 'md' }} fontWeight="bold" pt={2} pl={3} color="white">
       {currentMonth}月の達成率
     </Text>
   )
