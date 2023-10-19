@@ -17,10 +17,9 @@ https://github.com/OHTA1127 (デプロイ後更新)
 そこで我慢したものをしっかりと記録に残すことで自分の頑張りを可視化し、より我慢することに対してのモチベーションを高めることで我慢につながるのではないかと思い、このアプリケーションを作りました！
 また「Tamemol Plus」では自分が何によく無駄遣いをしてしまうのかということも分析することが可能なため、自分のことを理解しつつ無駄遣いを減らせます！
 
-## 使用技術(バージョン記入する)
-
+## 使用技術
 #### フロントエンド言語
-<img src="https://img.shields.io/badge/-Typescript-000000.svg?logo=typescript&style=for-the-badge">(ver5.2.2)
+<img src="https://img.shields.io/badge/-Typescript-000000.svg?logo=typescript&style=for-the-badge">
 
 #### フロントエンドフレームワーク
 <img src="https://img.shields.io/badge/-React-000000.svg?logo=react&style=for-the-badge"><img src="https://img.shields.io/badge/-Next.js-000000.svg?logo=next.js&style=for-the-badge">
