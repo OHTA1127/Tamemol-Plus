@@ -62,7 +62,7 @@ function EditProduct() {
           type="text"
           size="lg"
           mb="8"
-          placeholder="New Product ?"
+          placeholder="記録する商品"
           required
           value={editedProduct.name || ''}
           onChange={(e) => {
@@ -73,7 +73,7 @@ function EditProduct() {
         <Select
           name="商品カテゴリー"
           required
-          placeholder="Select category"
+          placeholder="カテゴリーを選択"
           size="lg"
           mb="8"
           value={editedProduct.category || ''}
@@ -95,7 +95,7 @@ function EditProduct() {
           type="number"
           size="lg"
           mb="8"
-          placeholder="How many ?"
+          placeholder="価格"
           variant="outline"
           required
           value={editedProduct.price !== null ? editedProduct.price : ''}
@@ -121,7 +121,7 @@ function EditProduct() {
             _hover={{ background: 'blue.500' }}
             m={4}
           >
-            {editedProduct.id === '' ? 'Create' : 'Update'}
+            {editedProduct.id === '' ? '記録' : '更新'}
           </Button>
         </Center>
       </form>

@@ -45,7 +45,7 @@ async function ProductList() {
           bgGradient="linear(to-r, cyan.400, blue.500)"
           fontSize={{ base: 'xl', md: '2xl' }}
         >
-          Product List
+          商品一覧
         </Text>
         <ProductTable currentMonthProducts={currentMonthProducts} />
       </Stack>

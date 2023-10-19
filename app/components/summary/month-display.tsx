@@ -117,6 +117,7 @@ function MonthDisplay({ productData, userProfile }: Props) {
         <WrapItem>
           {' '}
           <SummaryPieChart
+            userProfile={userProfile}
             productData={productData}
             selectMonth={selectMonth}
           />

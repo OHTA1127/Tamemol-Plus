@@ -7,14 +7,21 @@ import NotBuyProduct from '../../common/organisms/chart/not-buy-product'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
+type UserProfile = Database['public']['Tables']['profile']['Row']
 type Product = Database['public']['Tables']['products']['Row']
 
 type Props = {
+  userProfile: UserProfile[] | null
   productData: Product[] | null
   selectMonth: number
 }
 
-function summaryPieChart({ productData, selectMonth }: Props) {
+function summaryPieChart({ userProfile, productData, selectMonth }: Props) {
+  const userName =
+    userProfile && userProfile[0] && userProfile[0].name
+      ? userProfile[0].name
+      : 'ゲスト'
+
   function calculateTotalSumByCategory(category: string) {
     let totalSum = 0
 
@@ -102,7 +109,7 @@ function summaryPieChart({ productData, selectMonth }: Props) {
             bgGradient="linear(to-r, cyan.400, blue.500)"
             fontSize={{ base: 'xl', md: '2xl' }}
           >
-            Buying Trends
+            {userName}の傾向
           </Text>
           <Pie data={data} />
         </Stack>

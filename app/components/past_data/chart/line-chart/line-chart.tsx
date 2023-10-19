@@ -78,7 +78,7 @@ function LineChart({ productData }: Props) {
           size: 20,
         },
         display: true,
-        text: 'Monthly Record',
+        text: '月ごとの変化',
       },
     },
   }

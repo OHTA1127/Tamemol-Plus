@@ -82,8 +82,11 @@ function BarChart({ productData }: Props) {
         position: 'top' as const,
       },
       title: {
+        font: {
+          size: 20,
+        },
         display: true,
-        text: 'Chart.js Bar Chart',
+        text: '月ごとの比較',
       },
     },
   }
