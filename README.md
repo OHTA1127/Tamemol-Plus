@@ -42,7 +42,7 @@ https://github.com/OHTA1127 (デプロイ後更新)
 
 | recordページ | summaryページ |
 | :---: | :---: |
-| ![Recordページ](record.jpg) | ![Summaryページ](summary.jpg) |
+| ![Recordページ](record.jpg) | ![Summaryページ](summary2.jpg) |
 | CRUD機能で我慢した商品の追加や削除、編集を行うページ。<br>このページではデフォルトで今月のデータが表示されます。<br>目標金額のカードをクリックすることで編集ページに遷移することができます。| 月ごとのデータを切り替えて表示するページ。<br>過去の我慢や購買情報を遡って確認できます。 |
 
 | editページ | statsページ |
