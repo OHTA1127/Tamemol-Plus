@@ -64,7 +64,7 @@ function Auth() {
           borderColor="gray.100"
           color="white"
           backdropFilter="auto"
-          backdropBlur="20px"
+          backdropBlur="40px"
         >
           <Box>
             <Heading
