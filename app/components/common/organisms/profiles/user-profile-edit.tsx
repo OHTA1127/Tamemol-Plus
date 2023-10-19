@@ -2,7 +2,15 @@
 
 import useStore from '@/store'
 import supabase from '@/utils/supabase'
-import { Box, Button, Flex, FormLabel, Heading, Input } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  Center,
+  Flex,
+  FormLabel,
+  Heading,
+  Input,
+} from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
 import React, { FormEvent } from 'react'
 
@@ -47,29 +55,22 @@ function EditUserProfile() {
   }
 
   return (
-    <Flex w="100%" h="100vh">
-      <Box
-        w="100%"
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-      >
+    <Box w="100%" h="100vh" bgImage="sea.jpg" bgSize="cover">
+      <Center h="100%">
         <Box
-          boxShadow="lg"
+          boxShadow="xl"
           w="600px"
           paddingY="120px"
           paddingX="32px"
           borderRadius="8px"
           border="1px solid"
           borderColor="gray.100"
-          m="0 auto"
           color="white"
-          bgColor="white"
+          backdropFilter="auto"
+          backdropBlur="40px"
         >
-          <Box w="100%">
+          <Box>
             <Heading
-              bgGradient="linear(to-r, cyan.400, blue.500)"
-              bgClip="text"
               fontWeight="extrabold"
               fontSize={40}
               mb="48px"
@@ -79,16 +80,13 @@ function EditUserProfile() {
               Edit your profile!
             </Heading>
             <form onSubmit={submitEditProfile}>
-              <FormLabel fontWeight="bold" color="teal.800">
-                名前
-              </FormLabel>
+              <FormLabel fontWeight="extrabold">名前</FormLabel>
               <Input
-                color="gray.600"
                 type="text"
                 size="lg"
                 mb="8"
                 placeholder="Your Name ?"
-                _placeholder={{ color: 'teal.800' }}
+                _placeholder={{ color: 'white' }}
                 variant="outline"
                 required
                 value={editedProfile.name || ''}
@@ -96,16 +94,13 @@ function EditUserProfile() {
                   updateProfile({ ...editedProfile, name: e.target.value })
                 }}
               />
-              <FormLabel fontWeight="bold" color="teal.800">
-                目標金額(半角数字)
-              </FormLabel>
+              <FormLabel fontWeight="extrabold">目標金額(半角数字)</FormLabel>
               <Input
-                color="gray.600"
                 type="text"
                 size="lg"
                 mb="8"
                 placeholder="Goal Money ?"
-                _placeholder={{ color: 'teal.800' }}
+                _placeholder={{ color: 'white' }}
                 variant="outline"
                 required
                 value={
@@ -123,11 +118,11 @@ function EditUserProfile() {
                 <Button
                   type="submit"
                   color="white"
-                  background="blue.700"
+                  background="cyan.700"
                   size="lg"
                   paddingX="80px"
                   m="0 auto"
-                  _hover={{ background: 'teal.300' }}
+                  _hover={{ background: 'cyan.400' }}
                 >
                   Update
                 </Button>
@@ -135,8 +130,8 @@ function EditUserProfile() {
             </form>
           </Box>
         </Box>
-      </Box>
-    </Flex>
+      </Center>
+    </Box>
   )
 }
 
