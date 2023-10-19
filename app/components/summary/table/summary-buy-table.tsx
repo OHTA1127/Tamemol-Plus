@@ -1,6 +1,5 @@
 'use client'
 import { Database } from '@/database.types'
-import supabase from '@/utils/supabase'
 import {
   Box,
   Table,
@@ -12,7 +11,6 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react'
-import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import DeleteButton from '../../common/atoms/button/delete-button'
@@ -26,7 +24,6 @@ type Props = {
 }
 
 function SummaryBuyTable({ productData, selectMonth }: Props) {
-  const router = useRouter()
   const [buyProductList, setBuyProductList] = useState<Product[]>([])
 
   useEffect(() => {
@@ -70,11 +67,6 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
     setProductsOffset(newOffset)
   }
 
-  async function deleteMutate(id: string) {
-    await supabase.from('products').delete().eq('id', id)
-    router.refresh()
-  }
-
   return (
     <Box bg="white" borderRadius="10px" shadow="2xl" h="500px" w="550px" p={3}>
       <Text
@@ -101,7 +93,7 @@ function SummaryBuyTable({ productData, selectMonth }: Props) {
               <Tr key={item.id}>
                 <Td>{item.name}</Td>
                 <Td>{item.category}</Td>
-                <Td>{item.price}</Td>
+                <Td>{item.price?.toLocaleString()}</Td>
                 <Td>
                   <DeleteButton itemId={item.id} />
                 </Td>

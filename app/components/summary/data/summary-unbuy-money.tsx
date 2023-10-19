@@ -47,6 +47,9 @@ function SummaryUnbuyMoney({ productData, selectMonth }: Props) {
     setTotalSum(totalSum)
   }
 
+  //数字を三桁区切りの文字列に変更
+  const formattedTotalSum = totalSum.toLocaleString()
+
   return (
     <Box
       w="360px"
@@ -61,7 +64,7 @@ function SummaryUnbuyMoney({ productData, selectMonth }: Props) {
           我慢した金額
         </Text>
         <Text textAlign="center" fontSize="5xl" fontWeight="bold" color="white">
-          ¥ {totalSum}
+          ¥ {formattedTotalSum}
         </Text>
       </Stack>
     </Box>
