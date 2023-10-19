@@ -96,7 +96,7 @@ function PastDataStat({ userProfile, productData }: Props) {
           >
             <span style={{ fontSize: '45px' }}>¥</span>
             {TotalCalculate(productData) >= 0 ? '+' : ''}
-            {TotalCalculate(productData)}
+            {TotalCalculate(productData).toLocaleString()}
           </StatNumber>
         </Center>
         <StatHelpText fontSize={{ base: '30px', md: '50px' }}>
