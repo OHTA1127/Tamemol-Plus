@@ -8,7 +8,7 @@ import React from 'react'
 type ProfileData = Database['public']['Tables']['profile']['Row']
 
 type Props = {
-  profileGoalMoney: number
+  profileGoalMoney: string
   userData: ProfileData
 }
 

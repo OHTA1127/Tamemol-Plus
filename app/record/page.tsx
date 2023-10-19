@@ -20,6 +20,8 @@ async function Record() {
   const { data: profile } = await supabase.from('profile').select()
   const userProfile = profile![0]
   const profileGoalMoney = profile?.[0]?.goal_money || 1000
+  //数字を三桁区切りの文字列に変更
+  const formattedProfileGoalMoney = profileGoalMoney.toLocaleString()
 
   return (
     <Box w="100%" h="100vh">
@@ -27,7 +29,7 @@ async function Record() {
         <WrapItem>
           <GoalMoney
             userData={userProfile}
-            profileGoalMoney={profileGoalMoney}
+            profileGoalMoney={formattedProfileGoalMoney}
           />
         </WrapItem>
         <Spacer />

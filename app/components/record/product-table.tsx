@@ -57,12 +57,6 @@ function ProductTable({ currentMonthProducts }: Props) {
     router.refresh()
   }
 
-  //商品データの削除
-  async function deleteMutate(id: string) {
-    await supabase.from('products').delete().eq('id', id)
-    router.refresh()
-  }
-
   return (
     <>
       {currentProducts && currentProducts.length ? (
@@ -84,7 +78,7 @@ function ProductTable({ currentMonthProducts }: Props) {
                   <Tr key={currentProduct.id}>
                     <Td>{currentProduct.name}</Td>
                     <Td>{currentProduct.category}</Td>
-                    <Td>{currentProduct.price}</Td>
+                    <Td>{currentProduct.price?.toLocaleString()}</Td>
                     <Td textAlign="center">
                       <input
                         type="checkbox"
