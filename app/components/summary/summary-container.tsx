@@ -1,10 +1,9 @@
 import { Database } from '@/database.types'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
-import React from 'react'
 import MonthDisplay from './month-display'
 
-async function SumamaryContainer() {
+export default async function SumamaryContainer() {
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
@@ -19,5 +18,3 @@ async function SumamaryContainer() {
 
   return <MonthDisplay productData={product} userProfile={profile} />
 }
-
-export default React.memo(SumamaryContainer)

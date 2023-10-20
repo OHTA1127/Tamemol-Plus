@@ -3,7 +3,6 @@ import { Database } from '@/database.types'
 import useStore from '@/store'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import Link from 'next/link'
-import React from 'react'
 
 type ProfileData = Database['public']['Tables']['profile']['Row']
 
@@ -12,7 +11,7 @@ type Props = {
   userData: ProfileData
 }
 
-function GoalMoney({ profileGoalMoney, userData }: Props) {
+export default function GoalMoney({ profileGoalMoney, userData }: Props) {
   const updateProfile = useStore((state) => state.updateEditProfile)
 
   return (
@@ -59,5 +58,3 @@ function GoalMoney({ profileGoalMoney, userData }: Props) {
     </Link>
   )
 }
-
-export default React.memo(GoalMoney)

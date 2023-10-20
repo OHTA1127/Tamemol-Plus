@@ -1,5 +1,8 @@
+import React from 'react'
 import TopPageContainer from './components/top/top-page-container'
 
-export default function Top() {
+function Top() {
   return <TopPageContainer />
 }
+
+export default React.memo(Top)

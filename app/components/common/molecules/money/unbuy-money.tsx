@@ -4,7 +4,7 @@ import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-next
 import { cookies, headers } from 'next/headers'
 import React from 'react'
 
-async function UnbuyMoney() {
+export default async function UnbuyMoney() {
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
@@ -79,4 +79,3 @@ async function UnbuyMoney() {
   )
 }
 
-export default React.memo(UnbuyMoney)

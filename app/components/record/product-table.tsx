@@ -14,7 +14,7 @@ import {
   Tr,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import DeleteButton from '../common/atoms/button/delete-button'
 import './product-paginate.css'
@@ -24,7 +24,7 @@ type Props = {
   currentMonthProducts: Product[] | undefined
 }
 
-function ProductTable({ currentMonthProducts }: Props) {
+export default function ProductTable({ currentMonthProducts }: Props) {
   const router = useRouter()
   const updateProduct = useStore((state) => state.updateEditProduct)
   const resetProduct = useStore((status) => status.resetEditProduct)
@@ -180,5 +180,3 @@ function ProductTable({ currentMonthProducts }: Props) {
     </>
   )
 }
-
-export default React.memo(ProductTable)

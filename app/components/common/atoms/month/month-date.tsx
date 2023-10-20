@@ -1,8 +1,8 @@
 'use client'
 import { Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-function MonthData() {
+export default function MonthData() {
   const [currentMonth, setCurrentMonth] = useState('')
 
   useEffect(() => {
@@ -26,10 +26,14 @@ function MonthData() {
   }, [])
 
   return (
-    <Text fontSize={{ base: 'xs', md: 'md' }} fontWeight="bold" pt={2} pl={3} color="white">
+    <Text
+      fontSize={{ base: 'xs', md: 'md' }}
+      fontWeight="bold"
+      pt={2}
+      pl={3}
+      color="white"
+    >
       {currentMonth}月の達成率
     </Text>
   )
 }
-
-export default React.memo(MonthData)

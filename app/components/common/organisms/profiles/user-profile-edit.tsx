@@ -12,9 +12,9 @@ import {
   Input,
 } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
-import React, { FormEvent } from 'react'
+import { FormEvent } from 'react'
 
-function EditUserProfile() {
+export default function EditUserProfile() {
   const router = useRouter()
   const { editedProfile } = useStore()
   const { loginUser } = useStore()
@@ -134,5 +134,3 @@ function EditUserProfile() {
     </Box>
   )
 }
-
-export default React.memo(EditUserProfile)
