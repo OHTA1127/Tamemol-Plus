@@ -2,7 +2,7 @@
 
 ## サービス URL
 
-https://github.com/OHTA1127 (デプロイ後更新)
+https://tamemol-plus.vercel.app/
 
 ## 概要
 
