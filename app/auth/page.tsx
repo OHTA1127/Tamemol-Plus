@@ -56,12 +56,11 @@ function Auth() {
       <Center h="100%">
         <Box
           boxShadow="xl"
-          w="600px"
-          paddingY="120px"
+          w={{ base: '300px', md: '600px' }}
+          paddingY={{ base: '60px', md: '120px' }}
           paddingX="32px"
           borderRadius="8px"
           border="1px solid"
-          borderColor="gray.100"
           color="white"
           backdropFilter="auto"
           backdropBlur="40px"
@@ -69,8 +68,8 @@ function Auth() {
           <Box>
             <Heading
               fontWeight="extrabold"
-              fontSize={40}
-              mb="48px"
+              fontSize={{ base: '30', md: '40' }}
+              mb={{ base: '20px', md: '48px' }}
               textAlign="center"
               size="xl"
             >

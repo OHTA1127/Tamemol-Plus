@@ -50,8 +50,8 @@ function EditProduct() {
   return (
     <Box
       bgColor="white"
-      w="450px"
-      h="500px"
+      w={{ base: '160px', md: '450px' }}
+      h={{ base: '350px', md: '500px' }}
       borderRadius="10px"
       shadow="2xl"
       p={4}
@@ -60,8 +60,8 @@ function EditProduct() {
         <FormLabel fontWeight="bold">商品名</FormLabel>
         <Input
           type="text"
-          size="lg"
-          mb="8"
+          size={{ base: 'sm', md: 'lg' }}
+          mb={{ base: '1', md: '8' }}
           placeholder="記録する商品"
           required
           value={editedProduct.name || ''}
@@ -71,11 +71,12 @@ function EditProduct() {
         />
         <FormLabel fontWeight="bold">カテゴリー</FormLabel>
         <Select
+          fontSize={10}
           name="商品カテゴリー"
           required
           placeholder="カテゴリーを選択"
-          size="lg"
-          mb="8"
+          size={{ base: 'sm', md: 'lg' }}
+          mb={{ base: '1', md: '8' }}
           value={editedProduct.category || ''}
           onChange={(e) => {
             updateProduct({ ...editedProduct, category: e.target.value })
@@ -93,8 +94,8 @@ function EditProduct() {
         <FormLabel fontWeight="bold">金額</FormLabel>
         <Input
           type="number"
-          size="lg"
-          mb="8"
+          size={{ base: 'sm', md: 'lg' }}
+          mb={{ base: '1', md: '8' }}
           placeholder="価格"
           variant="outline"
           required
@@ -106,7 +107,7 @@ function EditProduct() {
         <FormLabel fontWeight="bold">日付</FormLabel>
         <Input
           type="date"
-          size="lg"
+          size={{ base: 'sm', md: 'lg' }}
           required
           value={editedProduct.date || ''}
           onChange={(e) => {

@@ -51,16 +51,21 @@ async function ProductResult() {
 
   return (
     <Box
-      w="360px"
-      h="120px"
+      w={{ base: '165px', md: '360px' }}
+      h={{ base: '70px', md: '120px' }}
       bgGradient="linear(to-r, orange.400, pink.500)"
       borderRadius="10px"
       shadow="2xl"
-      p={2}
+      p={{ base: 0, md: 2 }}
     >
       <Stack>
         <MonthDate />
-        <Text textAlign="center" fontSize="5xl" fontWeight="bold" color="white">
+        <Text
+          textAlign="center"
+          fontSize={{ base: 'xl', md: '5xl' }}
+          fontWeight="bold"
+          color="white"
+        >
           {achievementRate}%
         </Text>
       </Stack>

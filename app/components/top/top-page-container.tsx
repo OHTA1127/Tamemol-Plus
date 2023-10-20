@@ -8,7 +8,7 @@ export default function TopPageContainer() {
   return (
     <Box bgImage="sea.jpg" bgSize="cover" w="100%" h="100vh" p={20}>
       <Flex h="100%" alignItems="center">
-        <Box w="60%">
+        <Box w={{ base: '100%', md: '60%' }}>
           <Box>
             <Fade in={true} delay={0.5}>
               <Text
@@ -27,7 +27,7 @@ export default function TopPageContainer() {
               <Text
                 as="h1"
                 color="white"
-                fontSize={{ base: '4xl', md: '6xl' }}
+                fontSize={{ base: 'xl', md: '6xl' }}
                 fontWeight="bold"
                 fontFamily="mono"
               >
@@ -40,7 +40,7 @@ export default function TopPageContainer() {
               <Fade in={true} delay={1.1}>
                 <Button
                   as="u"
-                  fontSize={40}
+                  fontSize={{ base: '20', md: '40' }}
                   color="white"
                   fontFamily="mono"
                   bg="none"
