@@ -95,7 +95,15 @@ export default function SummaryBuyTable({ productData, selectMonth }: Props) {
                 <Td>{item.category}</Td>
                 <Td>{item.price?.toLocaleString()}</Td>
                 <Td>
-                  <DeleteButton itemId={item.id} />
+                  <DeleteButton
+                    fontSize="16px"
+                    mobileFontSize="8px"
+                    width="60px"
+                    mobileWidth="40px"
+                    height="40px"
+                    mobileHeight="20px"
+                    itemId={item.id}
+                  />
                 </Td>
               </Tr>
             ))}

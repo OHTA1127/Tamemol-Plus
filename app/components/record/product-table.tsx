@@ -77,13 +77,13 @@ export default function ProductTable({ currentMonthProducts }: Props) {
               <Tbody>
                 {currentProducts.map((currentProduct) => (
                   <Tr key={currentProduct.id}>
-                    <Td fontSize={{ base: '8px', md: '16px' }}>
+                    <Td fontSize={{ base: '8px', md: '15px' }}>
                       {currentProduct.name}
                     </Td>
-                    <Td fontSize={{ base: '8px', md: '16px' }}>
+                    <Td fontSize={{ base: '8px', md: '15px' }}>
                       {currentProduct.category}
                     </Td>
-                    <Td fontSize={{ base: '8px', md: '16px' }}>
+                    <Td fontSize={{ base: '8px', md: '15px' }}>
                       {currentProduct.price?.toLocaleString()}
                     </Td>
                     <Td textAlign="center">
@@ -100,7 +100,7 @@ export default function ProductTable({ currentMonthProducts }: Props) {
                     </Td>
                     <Td>
                       <Button
-                        w={{ base: '40px', md: '64px' }}
+                        w={{ base: '40px', md: '60px' }}
                         h={{ base: '20px', md: '40px' }}
                         fontSize={{ base: '8px', md: '16px' }}
                         color="white"
@@ -124,7 +124,7 @@ export default function ProductTable({ currentMonthProducts }: Props) {
                       <DeleteButton
                         fontSize="16px"
                         mobileFontSize="8px"
-                        width="64px"
+                        width="60px"
                         mobileWidth="40px"
                         height="40px"
                         mobileHeight="20px"

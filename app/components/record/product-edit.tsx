@@ -71,7 +71,7 @@ function EditProduct() {
         />
         <FormLabel fontWeight="bold">カテゴリー</FormLabel>
         <Select
-          fontSize={10}
+          fontSize={15}
           name="商品カテゴリー"
           required
           placeholder="カテゴリーを選択"

@@ -1,8 +1,8 @@
 'use client'
 import { Database } from '@/database.types'
 import useStore from '@/store'
-import { Box, Stack, Text } from '@chakra-ui/react'
-import Link from 'next/link'
+import { Box, Link, Stack, Text } from '@chakra-ui/react'
+import NextLink from 'next/link'
 
 type ProfileData = Database['public']['Tables']['profile']['Row']
 
@@ -15,7 +15,7 @@ export default function GoalMoney({ profileGoalMoney, userData }: Props) {
   const updateProfile = useStore((state) => state.updateEditProfile)
 
   return (
-    <Link href="/edit_profile">
+    <Link href="/edit_profile" as={NextLink}>
       <Box
         w={{ base: '165px', md: '360px' }}
         h={{ base: '70px', md: '120px' }}

@@ -42,7 +42,7 @@ async function ProductList() {
       borderRadius="10px"
       shadow="2xl"
       h={{ base: '250px', md: '500px' }}
-      w={{ base: '350px', md: '730px' }}
+      w={{ base: '350px', md: '750px' }}
       p={3}
     >
       <Stack>
