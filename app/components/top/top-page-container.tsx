@@ -1,8 +1,9 @@
 'use client'
 import { Box, Button, Center, Fade, Flex, Text } from '@chakra-ui/react'
 import { useRouter } from 'next/navigation'
+import React from 'react'
 
-export default function TopPageContainer() {
+function TopPageContainer() {
   const router = useRouter()
 
   return (
@@ -59,3 +60,5 @@ export default function TopPageContainer() {
     </Box>
   )
 }
+
+export default React.memo(TopPageContainer)

@@ -1,7 +1,7 @@
 'use client'
 import { Database } from '@/database.types'
 import { Box, Stack, Text } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Product = Database['public']['Tables']['products']['Row']
 
@@ -11,7 +11,7 @@ type Props = {
 }
 
 //サーバーコンポーネントからpropsとして受け取る
-function SummaryUnbuyMoney({ productData, selectMonth }: Props) {
+export default function SummaryUnbuyMoney({ productData, selectMonth }: Props) {
   //合計金額が格納されるstate
   const [totalSum, setTotalSum] = useState<number>(0)
 
@@ -70,5 +70,3 @@ function SummaryUnbuyMoney({ productData, selectMonth }: Props) {
     </Box>
   )
 }
-
-export default React.memo(SummaryUnbuyMoney)

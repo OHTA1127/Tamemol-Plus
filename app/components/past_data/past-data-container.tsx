@@ -2,14 +2,13 @@ import { Database } from '@/database.types'
 import { Box, Spacer, Wrap, WrapItem } from '@chakra-ui/react'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
-import React from 'react'
 import BarChart from './chart/bar-chart/bar-chart'
 import LineChart from './chart/line-chart/line-chart'
 import BuyDataPieChart from './chart/pie-chart/buy-data-pie-chart'
 import UnbuyDataPieChart from './chart/pie-chart/unbuy-data-pie-chart'
 import PastDataStat from './stat/past-data-stat'
 
-async function SumamaryContainer() {
+export default async function SumamaryContainer() {
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
@@ -49,5 +48,3 @@ async function SumamaryContainer() {
     </Box>
   )
 }
-
-export default React.memo(SumamaryContainer)

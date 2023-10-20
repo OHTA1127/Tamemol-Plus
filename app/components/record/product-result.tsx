@@ -2,10 +2,9 @@ import { Database } from '@/database.types'
 import { Box, Stack, Text } from '@chakra-ui/react'
 import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs'
 import { cookies, headers } from 'next/headers'
-import React from 'react'
 import MonthDate from '../common/atoms/month/month-date'
 
-async function ProductResult() {
+export default async function ProductResult() {
   const supabase = createServerComponentSupabaseClient<Database>({
     headers,
     cookies,
@@ -72,5 +71,3 @@ async function ProductResult() {
     </Box>
   )
 }
-
-export default React.memo(ProductResult)

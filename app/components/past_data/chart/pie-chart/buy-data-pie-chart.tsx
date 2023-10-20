@@ -2,7 +2,6 @@
 import { Database } from '@/database.types'
 import { Box, Center, Flex, Text } from '@chakra-ui/react'
 import { ArcElement, Chart as ChartJS, Legend, Tooltip } from 'chart.js'
-import React from 'react'
 import { Pie } from 'react-chartjs-2'
 import NotBuyProduct from '../../../common/organisms/chart/not-buy-product'
 
@@ -14,7 +13,7 @@ type Props = {
   productData: Product[] | null
 }
 
-function BuyDataPieChart({ productData }: Props) {
+export default function BuyDataPieChart({ productData }: Props) {
   function TotalSumByCategory(category: string) {
     let totalSum = 0
 
@@ -108,5 +107,3 @@ function BuyDataPieChart({ productData }: Props) {
     return <NotBuyProduct />
   }
 }
-
-export default React.memo(BuyDataPieChart)

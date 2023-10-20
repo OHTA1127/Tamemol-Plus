@@ -19,7 +19,7 @@ type Props = {
   otherData: number
 }
 
-function PieChart({
+export default function PieChart({
   userProfile,
   foodData,
   clotheData,
@@ -106,5 +106,3 @@ function PieChart({
     </Box>
   )
 }
-
-export default React.memo(PieChart)

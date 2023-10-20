@@ -11,7 +11,7 @@ import {
   Thead,
   Tr,
 } from '@chakra-ui/react'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import DeleteButton from '../../common/atoms/button/delete-button'
 import './summary-table-paginate.css'
@@ -23,7 +23,7 @@ type Props = {
   selectMonth: number
 }
 
-function SummaryUnbuyTable({ productData, selectMonth }: Props) {
+export default function SummaryUnbuyTable({ productData, selectMonth }: Props) {
   const [unBuyProductList, setUnBuyProductList] = useState<Product[]>([])
 
   useEffect(() => {
@@ -131,4 +131,3 @@ function SummaryUnbuyTable({ productData, selectMonth }: Props) {
     </Box>
   )
 }
-export default React.memo(SummaryUnbuyTable)
