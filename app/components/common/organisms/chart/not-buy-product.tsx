@@ -1,11 +1,17 @@
 import { Box, Center, Text } from '@chakra-ui/react'
 import React from 'react'
 
-function NotBuyProduct() {
+type Props = {
+  width?: string
+  height?: string
+  pt?: number
+}
+
+function NotBuyProduct({ width = '360px', height = '500px', pt = 230 }: Props) {
   return (
-    <Box w="360px" h="500px" bgColor="white" borderRadius="10px" shadow="2xl">
+    <Box w={width} h={height} bgColor="white" borderRadius="10px" shadow="2xl">
       <Center>
-        <Text fontWeight="bold" pt={230}>
+        <Text fontWeight="bold" pt={pt}>
           買った商品はありません！
         </Text>
       </Center>

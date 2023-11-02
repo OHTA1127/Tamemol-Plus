@@ -101,6 +101,6 @@ export default function UnbuyDataPieChart({ productData }: Props) {
       </Flex>
     )
   } else {
-    return <NotBuyProduct />
+    return <NotBuyProduct width="500px" height="350px" pt={170} />
   }
 }
