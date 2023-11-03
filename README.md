@@ -4,7 +4,7 @@
 
 https://tamemol-plus.vercel.app/
 
-#### テストアカウント
+#### サンプルアカウント
 メールアドレス sample@gmail.com<br>
 パスワード　 test.test
 
