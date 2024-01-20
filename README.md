@@ -51,7 +51,7 @@ https://tamemol-plus.vercel.app/
 
 | editページ | statsページ |
 | :---: | :---: |
-| ![Editページ](public/edit.jpg) | ![Statsページ](public/stats.jpg) |
+| ![Editページ](public/edit.jpg) | ![Statsページ](public/stats2.jpg) |
 | ユーザー名と月にどれくらい我慢したいかを設定できます。 | 過去のすべてのデータをもとに今までの結果が表示されます。<br>グラフを用いることで一目で自分の我慢や何に多くお金を使っているのかを確認することができます。|
 
 ## 苦労・工夫した点
