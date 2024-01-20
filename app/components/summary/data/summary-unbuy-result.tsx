@@ -39,7 +39,8 @@ export default function SummaryUnbuyResult({
     const currentDate = new Date()
     const currentYear = currentDate.getFullYear()
 
-    let totalSum = 0
+    let totalSum2023 = 0
+    let totalSum2024 = 0
 
     if (productData) {
       for (const item of productData) {
@@ -49,13 +50,16 @@ export default function SummaryUnbuyResult({
           const itemMonth = itemDate.getMonth() + 1
           const itemYear = itemDate.getFullYear()
 
-          if (itemMonth === selectMonth && itemYear === currentYear) {
-            totalSum += item.price || 0
+          if (itemMonth === selectMonth && itemYear === 2023) {
+            totalSum2023 += item.price || 0
+          } else if (itemMonth === selectMonth && itemYear === 2024) {
+            totalSum2024 += item.price || 0
           }
         }
       }
     }
-
+    const totalSum = totalSum2023 + totalSum2024
+    console.log(totalSum)
     setTotalSum(totalSum)
   }
 
